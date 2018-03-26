@@ -4,10 +4,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_604966_cx6bd6uiwcow29.css">
   <title>React App</title>
 </head>
 
 <body>
+  <script>
+    ~function () {
+      function computed() {
+        var oHTML = document.documentElement,
+          winW = oHTML.clientWidth,
+          desW = 640;
+        if (winW >= desW) {
+          oHTML.style.fontSize = '100px';
+          return;
+        }
+        oHTML.style.fontSize = winW / desW * 100 + 'px';
+      }
+
+      computed();
+      window.addEventListener('resize', computed, false);
+    }();
+
+  </script>
   <div id="root"></div>
 
 </body>
