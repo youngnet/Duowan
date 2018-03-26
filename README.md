@@ -17,7 +17,6 @@
 │
 ├─components    => 公用组件
 ├─router        => 页面级组件
-├─static        => 静态文件
 └─store         => redux目录
     │  action-types.js
     │  index.js
