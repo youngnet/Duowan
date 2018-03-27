@@ -5,7 +5,7 @@ class Forum extends Component {
   render() {
     return (
       <div>
-        forum
+        Forum
       </div>
     );
   }
