@@ -9,7 +9,6 @@ export default class post extends React.Component{
     componentDidMount(){
         let h=document.documentElement.clientWidth;
         let H=document.documentElement.clientHeight;
-        console.log(h);
         if(h<640){
             this.post.style.width=h+'px';
         }else {
