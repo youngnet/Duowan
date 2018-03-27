@@ -30,8 +30,7 @@ class Rank extends Component {
                 article:''
             }},
             {img:"http://img3.dwstatic.com/www/1803/386071344428/1522118087787.jpg",title:'《绝地求生》PC版更新公告 武器皮肤已上线测试服',content:{}},
-            {img:"http://img5.dwstatic.com/www/1803/386070508223/1522115403856.jpg",title:'《绝地求生》PC版更新公告 武器皮肤已上线测试服',content:{}},
-            {img:"http://img3.dwstatic.com/www/1803/386071344428/1522118087787.jpg",title:'《星际公民》注册用户突破200万 众筹金额超11亿元',content:{}},
+            {img:"http://img5.dwstatic.com/www/1803/386070508223/1522115403856.jpg",title:'《星际公民》注册用户突破200万 众筹金额超11亿元',content:{}},
             {img:"http://img.dwstatic.com/www/1803/386002958400/1522048060261.jpg",title:'《怪物猎人：世界》游戏总监：游戏首月销量750万套大作的背后',content:{}},
             {img:"http://img2.dwstatic.com/www/1803/386001339769/1522046196976.jpg",title:'最火吉祥物上线 《幻想全明星》新英雄“熊本熊”登场',content:{}},
             {img:"http://img4.dwstatic.com/www/1803/385987419203/1522032500485.jpg",title:'《黑色沙漠》Xbox One X版演示 性感小姐姐与PC版无异',content:{}},
@@ -52,8 +51,9 @@ class Rank extends Component {
                     </div>
                 </section>
                 <section>
-                    <Item date={article}/>
+                    <Item data={article}/>
                 </section>
+                <p className='more'>加载更多</p>
             </div>
         );
     }
