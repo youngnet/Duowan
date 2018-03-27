@@ -15,7 +15,6 @@ export default class post extends React.Component{
         }else {
             this.post.style.width=640+'px';
         }
-
         this.post.style.height=H+'px';
         this.text.style.left=h+'px';
     }

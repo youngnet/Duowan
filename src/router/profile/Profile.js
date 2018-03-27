@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Personal from '../../components/personal/personal'
 
 class Profile extends Component {
   render() {
     return (
       <div>
-        profile
+        <Personal/>
       </div>
     );
   }
