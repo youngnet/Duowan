@@ -21,11 +21,8 @@ ReactDOM.render(
         <Route path="/forum" component={Forum} />
         <Route path="/rank" component={Rank} />
         <Route path="/profile" component={Profile} />
-        <Route path="/login" component={Login} />
-
-        <Footer />
       </div>
     </Router>
-  </Provider>,
+  </Provider>
   document.getElementById("root")
 );
