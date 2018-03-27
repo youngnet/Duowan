@@ -13,7 +13,7 @@ export default class item extends React.Component{
             {
                 article.map((item,index)=>{
                     return <li key={index}>
-                        <img src={item.img}/>
+                        <img src={item.img} />
                         <h4>{item.title}</h4>
                     </li>
                 })
