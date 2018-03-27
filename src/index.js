@@ -10,6 +10,8 @@ import Star from "./router/star/Star";
 import Profile from "./router/profile/Profile";
 import Rank from "./router/rank/Rank";
 import Forum from "./router/forum/Forum";
+import Login from "./router/SignIn/Login and registration";
+
 
 ReactDOM.render(
   <Provider store={store}>
@@ -19,6 +21,8 @@ ReactDOM.render(
         <Route path="/forum" component={Forum} />
         <Route path="/rank" component={Rank} />
         <Route path="/profile" component={Profile} />
+        <Route path="/login" component={Login} />
+
         <Footer />
       </div>
     </Router>

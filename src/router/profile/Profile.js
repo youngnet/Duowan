@@ -12,9 +12,9 @@ class Profile extends Component {
           <div className="header-two">
             <h3 className="user">用户名</h3>
             <ul className='follow clearfix'>
-                <li>关注：888</li>
-                <li>粉丝：999</li>
-                <li>好友：666</li>
+                <li>关注：0</li>
+                <li>粉丝：999999</li>
+                <li>好友：66666</li>
             </ul>
           </div>
             <span className="iconfont icon-qianjin arrow"></span>
