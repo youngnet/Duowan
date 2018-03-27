@@ -5,10 +5,8 @@ import axios from 'axios';
 export default class post extends React.Component{
     constructor(){
         super();
-        this.state={flag:false}
     };
     componentDidMount(){
-        this.setState({flag:true});
         let h=document.documentElement.clientWidth;
         let H=document.documentElement.clientHeight;
         if(h<640){
@@ -17,7 +15,7 @@ export default class post extends React.Component{
             this.post.style.width=640+'px';
         }
         this.post.style.height=H+'px';
-
+        this.text.style.left=h+'px';
     }
     render(){
         return <div ref={x=>{this.post=x}} className='star-post'>
@@ -33,7 +31,7 @@ export default class post extends React.Component{
                 <div className='text-title'>
                     <div onClick={ev=>{
                         if(parseInt(this.text.style.left)==0){
-                            this.text.style.left='6.4rem';
+                            this.text.style.left=this.post.style.width;
                             return;
                         };
                     }}>
