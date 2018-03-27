@@ -6,6 +6,7 @@ import Item from '../../components/rankItem/rankItem'
 import Footer from '../../components/footer/footer'
 import {rankData} from '../../api/dataInfo'
 import './Rank.less'
+import Footer from "../../components/footer/footer"
 let img1=require('../../common/img/banner1.jpg');
 let img2=require('../../common/img/banner2.jpg');
 let img3=require('../../common/img/banner3.jpg');
@@ -53,6 +54,7 @@ class Rank extends Component {
                 <p className='more'>加载更多</p>
                 <Footer/>
             </div>
+
         );
     }
 }
