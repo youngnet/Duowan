@@ -6,7 +6,6 @@ export default class item extends React.Component{
         super()
     }
     render(){
-        let {}
         return <div className='itemsContainer'>
             {
 
