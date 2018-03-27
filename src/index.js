@@ -23,6 +23,6 @@ ReactDOM.render(
         <Route path="/profile" component={Profile} />
       </div>
     </Router>
-  </Provider>
+  </Provider>,
   document.getElementById("root")
 );
