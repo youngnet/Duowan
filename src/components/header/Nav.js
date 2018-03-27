@@ -1,28 +1,61 @@
 import React from 'react'
 import PropTypes from "prop-types"
+
 import './Nav.less'
 
-export default class Nav extends React.Component{
-    constructor(){
+export default class Nav extends React.Component {
+    static defaultProps = {
+        data: []
+    };
+    static propTypes = {
+        data: PropTypes.array.isRequired
+    };
+
+    constructor() {
         super();
-        this.state={
-            title:['推荐','手机游戏','电脑游戏','特权礼包','推荐','手机游戏','电脑游戏','特权礼包']
+        this.state = {
+            cur: 0
         }
     }
-    componentWillMount(){
+
+    componentDidMount() {
+        let oLis = document.getElementsByClassName('menuNav')[0].getElementsByTagName('li');
+        let allWidth = 0;
+        for (let i = 0; i < oLis.length; i++) {
+            allWidth += oLis[i].offsetWidth;
+        }
+        this.ul.style.width = allWidth + 1 + 'px';
     }
-    render(){
-        return <header className='headerBox'>
-            <ul className='menuNav clearfix' ref={x=>this.ul=x} style={{}}>
-                <li>推荐</li>
-                <li>手机游戏</li>
-                <li>电脑游戏</li>
-                <li>特权礼包</li>
-                <li>推荐</li>
-                <li>手机游戏</li>
-                <li>电脑游戏</li>
-                <li>特权礼包</li>
+
+    render() {
+        let {data} = this.props;
+        return <div className='headerBox'>
+            <ul className='menuNav clearfix' ref={x => this.ul = x}
+                onClick={event => {
+                    if (event.target.tagName === 'LI') {
+                        let index = parseFloat(event.target.dataset.index);
+                        let oLis = document.getElementsByClassName('menuNav')[0].getElementsByTagName('li');
+                        let oWidth = parseFloat(getComputedStyle(oLis[index]).width) + 'px';
+                        this.tip.style.width = oWidth;
+                        this.tip.style.left = this.ul.offsetLeft + oLis[index].offsetLeft + 'px';
+                        this.setState({
+                            cur: index
+                        });
+                    }
+                }}>
+                {
+                    data.map((item, index) => {
+                        return <li data-index={`${index}`} key={index}
+                                   className={this.state.cur === index ? 'active' : ''}>
+                            {item}
+                        </li>
+                    })
+                }
             </ul>
-        </header>
+            <div className='navTip' ref={x => this.tip = x} style={{}}>
+
+            </div>
+        </div>
+
     }
 }
