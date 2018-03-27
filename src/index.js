@@ -19,7 +19,6 @@ ReactDOM.render(
         <Route path="/forum" component={Forum} />
         <Route path="/rank" component={Rank} />
         <Route path="/profile" component={Profile} />
-        <Footer />
       </div>
     </Router>
   </Provider>,
