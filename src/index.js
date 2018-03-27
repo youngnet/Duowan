@@ -17,6 +17,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
+          <Route path="/" exact component={Star}/>
         <Route path="/star" component={Star} />
         <Route path="/forum" component={Forum} />
         <Route path="/rank" component={Rank} />

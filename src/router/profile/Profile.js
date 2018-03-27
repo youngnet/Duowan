@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Profile.less'
+import './Profile.less';
+import Footer from "../../components/footer/footer"
 
 class Profile extends Component {
   render() {
@@ -41,6 +42,7 @@ class Profile extends Component {
                   <li className="user">切换账号</li>
               </ul>
           </div>
+          <Footer/>
       </div>
     );
   }
