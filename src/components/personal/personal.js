@@ -10,11 +10,11 @@ export default class personal extends React.Component{
         let h=document.documentElement.clientWidth;
         let H=document.documentElement.clientHeight;
         if(h<640){
-            this.pers.style.width=h+'px';
+            this.peR.style.width=h+'px';
         }else {
-            this.pers.style.width=640+'px';
+            this.peR.style.width=640+'px';
         }
-        this.pers.style.height=H+'px';
+        this.peR.style.height=H+'px';
         this.peR.style.left=h+'px';
     }
 
@@ -30,7 +30,7 @@ export default class personal extends React.Component{
               <div className='peR-head'>
                <div className='head-text'>
                    <a href="javascript:;" className='iconfont icon-houtui' onClick={ev=>{
-                       this.peR.style.left=this.pers.style.width;
+                       this.peR.style.left='6.4rem';
                    }}></a>
                    <a href="javascript:;" className='iconfont icon-xiaoxi'></a>
                    <div className='text-head'>
@@ -77,14 +77,6 @@ export default class personal extends React.Component{
                       <ul>
                           <li>
                             <p><strong>题目</strong></p>
-                              <p>内容</p>
-                          </li>
-                          <li>
-                              <p><strong>题目</strong></p>
-                              <p>内容</p>
-                          </li>
-                          <li>
-                              <p><strong>题目</strong></p>
                               <p>内容</p>
                           </li>
                       </ul>
