@@ -15,7 +15,7 @@ router.post("/collectArticle", (req, res) => {
   res.send("collect success");
 });
 router.get("/rankData", async (req, res) => {
-  let { id } = req.query || 0;
+  let { id } = Number(req.query) || 0;
   console.log(readFile);
   if (id) {
     let data = (await readFile("rankData.json")).find(item => item.id == id);
