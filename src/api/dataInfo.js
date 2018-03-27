@@ -1,9 +1,7 @@
 import axios from "axios";
 
 export function getData() {
-  return axios.get(
-    `120.76.205.241:8000/post/duowan?catid=1133&apikey=WmZXTd5z0Ko4Ees19SH9ZWKH4tu2sthq4eZykPcGe8TmqvNDa4NKfQIzbiwEPCx7`
-  );
+  return axios.get(`/data/getData`);
 }
 
 export function postContent(content) {
