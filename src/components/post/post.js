@@ -8,16 +8,18 @@ export default class post extends React.Component{
         this.state={flag:false}
     };
     componentDidMount(){
-        this.setState({flag:true})
+        this.setState({
+            change:true
+        })
         let h=document.documentElement.clientWidth;
         let H=document.documentElement.clientHeight;
         if(h<640){
-            this.post.style.width=h+'px';
+            this.text.style.width=h+'px';
         }else {
-            this.post.style.width=640+'px';
+            this.text.style.width=640+'px';
         }
-        this.post.style.height=H+'px';
         // this.text.style.left=h+'px';
+        this.text.style.height=H+'px';
     }
     render(){
         return <div ref={x=>{this.post=x}} className='star-post'>
@@ -33,7 +35,7 @@ export default class post extends React.Component{
                 <div className='text-title'>
                     <div onClick={ev=>{
                         if(parseInt(this.text.style.left)==0){
-                            this.text.style.left=this.post.style.width;
+                            this.text.style.left='6.4rem';
                             return;
                         };
                     }}>

@@ -5,32 +5,39 @@ import Nav from '../../components/header/Nav'
 export default class personal extends React.Component{
     constructor(){
         super();
-    }
-    componentDidMount(){
-        let h=document.documentElement.clientWidth;
-        let H=document.documentElement.clientHeight;
-        if(h<640){
-            this.pers.style.width=h+'px';
-        }else {
-            this.pers.style.width=640+'px';
+        this.state={
+            left:false
         }
-        this.pers.style.height=H+'px';
-        this.peR.style.left=h+'px';
+    }
+    componentDidMount() {
+        let h = document.documentElement.clientWidth;
+        let H = document.documentElement.clientHeight;
+        if (h < 640) {
+            this.pers.style.width = h + 'px';
+        } else {
+            this.pers.style.width = 640 + 'px';
+        }
+        this.pers.style.height = H + 'px';
     }
 
     render(){
         let arr=["主题","回复"];
-        return <div ref={x=>this.pers=x} className='Profile-personal'>
-            <div className='peR-click' onClick={ev=>{
-                if(parseInt(this.peR.style.left)!==0){
-                    this.peR.style.left=0;
-                };
-            }}></div>
+        let {pers_left,changeLeft}=this.props;
+        console.log(this.props);
+        let style={left:pers_left?'0':'6.4rem',}
+        return <div ref={x=>this.pers=x} style={style} className='Profile-personal'>
+            {/*<div className='peR-click' onClick={ev=>{*/}
+                {/*console.log(1);*/}
+                {/*if(parseInt(this.peR.style.left)!==0){*/}
+                    {/*console.log(2);*/}
+                    {/*this.peR.style.left=0;*/}
+                {/*};*/}
+            {/*}}></div>*/}
             <div ref={x=>{this.peR=x}} className='peR-all'>
                 <div className='peR-head'>
                     <div className='head-text'>
                         <a href="javascript:;" className='iconfont icon-houtui' onClick={ev=>{
-                            this.peR.style.left=this.pers.style.width;
+                            changeLeft();
                         }}></a>
                         <a href="javascript:;" className='iconfont icon-xiaoxi'></a>
                         <div className='text-head'>

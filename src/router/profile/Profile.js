@@ -5,13 +5,28 @@ import './Profile.less';
 import Footer from "../../components/footer/footer";
 
 class Profile extends Component {
+    constructor(){
+        super();
+        this.state={
+            pers_left:false
+        }
+    }
+ changeLeft=()=>{
+      this.setState({
+          pers_left:false
+      })
+ }
   render() {
     return (
-      <div>
-        <Personal/>
+      <div style={{position:'absolute',overflow:'hidden',width:'100%',height:'100%'}}>
+        <Personal pers_left={this.state.pers_left} changeLeft={this.changeLeft}/>
         <div className="header-one">
         <div className="div-one">
-        <div className="details">
+        <div className="details" onClick={ev=>{
+            this.setState({
+                pers_left:true
+            })
+        }}>
             <img src={require("../../common/img/105628v3943kuuzudkekdk.png")} alt =""/>
           <div className="header-two">
             <h3 className="user">用户名</h3>
