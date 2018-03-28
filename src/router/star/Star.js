@@ -6,6 +6,7 @@ import StarItem from '../../components/starItem/starItem'
 import Nav from "../../components/header/Nav";
 import {connect} from 'react-redux'
 import action from "../../store/actions";
+import Tab from "../../components/header/Tab";
 
 class Star extends Component {
     constructor() {
@@ -22,6 +23,7 @@ class Star extends Component {
 
     render() {
         return <div>
+            <Tab/>
             <Nav data={this.state.list}/>
             <StarItem data={this.props.starData}/>
             <Post/>
