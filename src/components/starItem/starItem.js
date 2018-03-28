@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import './starItem.less'
 import utils from '../../common/js/utils'
 
-let img = require('../../common/img/120026h03698ee7i83ermv.png')
+let img = require('../../common/img/120026h03698ee7i83ermv.png');
 
 export default class starItem extends React.Component {
     constructor() {
@@ -24,7 +24,8 @@ export default class starItem extends React.Component {
         let {data}=this.props;
         return <div>
             {data.map((it,index)=>{
-                return <div className='starItem' key={index}>
+                return <div key={index} className='starItem'>
+
                     <div className='starItem_header'>
                         <div className='portraitBox'>
                     <span className='portrait'>

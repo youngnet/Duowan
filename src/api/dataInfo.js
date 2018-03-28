@@ -1,7 +1,7 @@
 import axios from "./index";
 
-export function getData() {
-  return axios.get(`/data/getData`);
+export function getData(a,b) {
+    return axios.get(`/data/getData?${a}=${b}`);
 }
 
 export function postContent(content) {
