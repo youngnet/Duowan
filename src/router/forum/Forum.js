@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 import "./Forum.less"
 import ForumList from "./ForumList/ForumList"
 import PropTypes from 'prop-types';
+import Search from '../../components/search/search'
 import Footer from "../../components/footer/footer"
 
 
@@ -21,6 +22,7 @@ class Forum extends Component {
                 </Row>
                 </Carousel>
           <Route path="/ForumList" component={ForumList}/>
+        <Search/>
         <Footer/>
       </div>
     );

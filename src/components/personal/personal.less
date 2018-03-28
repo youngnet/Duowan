@@ -1,0 +1,218 @@
+
+.Profile-personal{
+  position: absolute;
+  z-index: 88;
+  top: 0;
+  transition: all .3s;
+  left:0;
+  overflow: hidden;
+  //.peR-click{
+  //  width: 6.4rem;
+  //  height: 1.5rem;
+  //  z-index: 77;
+  //  border:1px solid red;
+  //}
+  .peR-all{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    transition: all .3s;
+    //left:2rem;
+    //left:0;
+
+    .peR-head{
+      width: 100%;
+      height: 4.4rem;
+      overflow: hidden;
+
+
+      .head-text{
+        padding-top: .5rem;
+        position:relative;
+        width: 100%;
+        height: 100%;
+        background: url("../../common/img/pren-bg.jpg") no-repeat 100% 100%;
+        background-size: 100% 100%;
+        //background-color: #555;
+
+        a:nth-child(1){
+          display: block;
+          position: absolute;
+          top:.2rem;
+          left:.3rem;
+          font-size: .5rem;
+          color:#333;
+        }
+        a:nth-child(2){
+          display: block;
+          position: absolute;
+          top:.2rem;
+          right:.3rem;
+          color:#333;
+          font-size: .5rem;
+        }
+        .text-head{
+          margin: 0 auto;
+          width: 1.7rem;
+          height: 1.7rem;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 2px solid #eb6ab0;
+          background: url("../../common/img/noavatar_small.jpg") no-repeat;
+          background-size: 100% 100%;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .text-name{
+          width: 4rem;
+          height: 1rem;
+          text-align: center;
+          margin: 0 auto;
+          h3{
+            font-size: .36rem;
+            text-align: center;
+            line-height: 1rem;
+            display: inline-block;
+
+          }
+          span{
+            display: inline-block;
+            margin-left: .2rem;
+            //border:.01rem solid #eb6ab0;
+            width: .6rem;
+            height: .25rem;
+            line-height: .25rem;
+            background-color: #b1a997;
+            color:#fff;
+            font-size: .2rem;
+            border-radius: .05rem;
+          }
+        }
+
+        .text-p{
+          width: 100%;
+          height: .25rem;
+          font-size: .2rem;
+          text-align: center;
+          span:nth-child(2){
+            margin-left: .3rem;
+          }
+          span:nth-child(3){
+            margin-left: .3rem;
+          }
+          span:nth-child(4){
+            float: right;
+            margin-right: .3rem;
+            font-size: .2rem;
+          }
+        }
+
+        .text-signature{
+          width: 4rem;
+          height: .95rem;
+          line-height: .6rem;
+          font-size: .2rem;
+          text-align: center;
+          margin: 0 auto;
+        }
+
+
+      }
+    }
+
+    .peR-body{
+      width: 100%;
+      height: 1.6rem;
+      background-color: #fff;
+      ul{
+        width: 100%;
+        height: 100%;
+        li{
+          width: 25%;
+          float: left;
+          height: 100%;
+          box-sizing: border-box;
+          text-align: center;
+          p{
+            margin-top: .2rem;
+            font-size: .2rem;
+          }
+          p:nth-child(1){
+            color: #ff2b68;
+            font-size: .3rem;
+          }
+        }
+      }
+    }
+
+    .peR-footer{
+      text-align: center;
+      margin-top: .6rem;
+      background-color: #fff;
+      .footer-list{
+        width: 100%;
+        height: 3rem;
+        background-color: #fff;
+        border-top: .01rem solid #f3f3f3;
+        overflow: auto;
+        ul{
+          width: 100%;
+          li{
+            width: 100%;
+            height: 2rem;
+            overflow: hidden;
+            text-align: left;
+            border-bottom: .02rem solid rgba(255, 94, 191, 0.3);
+            p:nth-child(1){
+              display: block;
+              width: 100%;
+              height: .7rem;
+              //border-bottom: .02rem solid #f3f3f3;
+              font-size: .3rem;
+              line-height: .7rem;
+              margin-left: .2rem;
+              white-space:nowrap;
+              text-overflow:ellipsis;
+              overflow:hidden;
+              color: #eb57ad;
+            }
+            p:nth-child(2){
+              font-size: .2rem;
+              margin-left: .3rem;
+            }
+          }
+        }
+      }
+      .theme{
+        width: 100%;
+        height: .5rem;
+        font-size: .3rem;
+        position: relative;
+        i{
+        width: .5rem;
+        height: 0;
+        display: block;
+         position: absolute;
+        border-bottom: .03rem solid red;
+          bottom: 0;
+          transition: all .3s;
+          left:1.35rem;
+          }
+        div{
+          width: 50%;
+          height:100%;
+          float: left;
+          line-height: .5rem;
+          text-align: center;
+
+        }
+      }
+
+
+    }
+  }
+}
