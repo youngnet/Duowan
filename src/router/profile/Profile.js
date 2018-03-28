@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Personal from '../../components/personal/personal';
 import './Profile.less';
-import Footer from "../../components/footer/footer"
+import Footer from "../../components/footer/footer";
 
 class Profile extends Component {
+    constructor(){
+        super();
+        this.state={
+            pers_left:false
+        }
+    }
+ changeLeft=()=>{
+      this.setState({
+          pers_left:false
+      })
+ }
   render() {
     return (
-      <div className="header-one">
+      <div style={{position:'absolute',overflow:'hidden',width:'6.4rem',height:'10.2rem'}}>
+        <Personal pers_left={this.state.pers_left} changeLeft={this.changeLeft}/>
+        <div className="header-one">
         <div className="div-one">
-        <div className="details">
+        <div className="details" onClick={ev=>{
+            this.setState({
+                pers_left:true
+            })
+        }}>
             <img src={require("../../common/img/105628v3943kuuzudkekdk.png")} alt =""/>
           <div className="header-two">
             <h3 className="user">用户名</h3>
@@ -44,13 +62,14 @@ class Profile extends Component {
           </div>
           <Footer/>
       </div>
-    );
+      </div>
+    )
   }
 }
 
 
 Profile.propTypes = {
 
-};
+}
 
 export default Profile;

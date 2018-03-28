@@ -22,24 +22,21 @@ class Rank extends Component {
             {img: img3, title: '谁人才是珠峰真正的吃鸡王?'},
             {img: img4, title: '绝地求生系列游戏如何走上神坛?'}
         ],
-            rankItems:[]
+            rankItems:[],
+            list: ['推荐', '手机游戏', '电脑游戏', '微端游戏','特权礼包']
         }
     }
     async componentWillMount(){
         let result=await rankData();
-        console.log(result);
         this.setState({
             rankItems:result
         })
     }
     render() {
-        let data = {
-            list: ['推荐', '手机游戏', '电脑游戏', '特权礼包']
-        };
         return (
             <div className='rank-container'>
                 <header>
-                    <Nav data={data.list}/>
+                    <Nav data={this.state.list}/>
                     <Banner data={this.state.banner} auto={3000}/>
                 </header>
                 <section className='hotTitle'>
