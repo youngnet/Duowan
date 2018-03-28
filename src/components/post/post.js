@@ -19,7 +19,8 @@ export default class post extends React.Component{
             this.text.style.width=640+'px';
         }
         // this.text.style.left=h+'px';
-        this.text.style.height=H+'px';
+         this.inp.style.height=H+'px';
+
     }
     render(){
         return <div ref={x=>{this.post=x}} className='star-post'>
@@ -27,6 +28,7 @@ export default class post extends React.Component{
                 <a className='iconfont icon-bianji btn' href="javascript:;" onClick={ev=>{
                     if(parseInt(this.text.style.left)!==0){
                         this.text.style.left=0;
+                        this.text.style.opacity=1;
                         return;
                     };
                 }}></a>
@@ -36,6 +38,7 @@ export default class post extends React.Component{
                     <div onClick={ev=>{
                         if(parseInt(this.text.style.left)==0){
                             this.text.style.left='6.4rem';
+                            this.text.style.opacity=0;
                             return;
                         };
                     }}>
@@ -44,7 +47,7 @@ export default class post extends React.Component{
                     <h4>发帖</h4>
                     <p onClick={this.changePost}>发布</p>
                 </div>
-                <div className='text-input'>
+                <div ref={x=>{this.inp=x}} className='text-input'>
                     <input ref={x=>this.inpa=x} placeholder='请输入标题（必填）' type="text"/>
                     <input ref={x=>this.inpb=x} placeholder='请输入内容' type="text"/>
                 </div>

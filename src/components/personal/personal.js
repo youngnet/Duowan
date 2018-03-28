@@ -1,12 +1,13 @@
 import React from 'react';
 import './personal.less';
-import Nav from '../../components/header/Nav'
+import {rankData} from '../../api/dataInfo'
 
 export default class personal extends React.Component{
     constructor(){
         super();
         this.state={
-            left:false
+            left:false,
+            data:[]
         }
     }
     componentDidMount() {
@@ -18,12 +19,17 @@ export default class personal extends React.Component{
             this.pers.style.width = 640 + 'px';
         }
         this.pers.style.height = H + 'px';
+        rankData(7).then(data=>{
+            this.setState({
+                data
+            })
+        })
     }
 
     render(){
-        let arr=["主题","回复"];
+        let {data}=this.state;
+        console.log(data);
         let {pers_left,changeLeft}=this.props;
-        console.log(this.props);
         let style={left:pers_left?'0':'6.4rem',}
         return <div ref={x=>this.pers=x} style={style} className='Profile-personal'>
             {/*<div className='peR-click' onClick={ev=>{*/}
@@ -41,10 +47,10 @@ export default class personal extends React.Component{
                         }}></a>
                         <a href="javascript:;" className='iconfont icon-xiaoxi'></a>
                         <div className='text-head'>
-                            {/*<img src={require("../../common/img/noavatar_small.jpg")} alt=""/>*/}
+                            <img src={data.img} alt=""/>
                         </div>
                         <div className='text-name'>
-                            <h3>北城霸主 </h3>
+                            <h3>{data.content==undefined?'':data.content.author}</h3>
                             <span>Lv.2</span>
                         </div>
                         <div className='text-p'>
@@ -79,20 +85,20 @@ export default class personal extends React.Component{
                     </ul>
                 </div>
                 <div className='peR-footer'>
-                    <Nav data={arr}/>
+                   <div className='theme'>
+                       <div onClick={ev=>{
+                           this.i.style.left='1.35rem'
+                       }}>主题</div>
+                       <div onClick={ev=>{
+                           this.i.style.left='4.55rem'
+                       }}>回复</div>
+                       <i ref={x=>{this.i=x}}></i>
+                   </div>
                     <div className='footer-list'>
                         <ul>
                             <li>
-                                <p><strong>题目</strong></p>
-                                <p>内容</p>
-                            </li>
-                            <li>
-                                <p><strong>题目</strong></p>
-                                <p>内容</p>
-                            </li>
-                            <li>
-                                <p><strong>题目</strong></p>
-                                <p>内容</p>
+                                <p>{data.content==undefined?'':data.title}</p>
+                                <p>{data.content==undefined?'':data.content.article}</p>
                             </li>
                         </ul>
                     </div>

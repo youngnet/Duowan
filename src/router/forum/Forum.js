@@ -6,9 +6,8 @@ import Footer from "../../components/footer/footer"
 class Forum extends Component {
   render() {
     return (
-      <div style={{position:'absolute',overflow:'hidden',width:'100%',height:'100%'}}>
+      <div>
         <Search/>
-        Forum
         <Footer/>
       </div>
     );

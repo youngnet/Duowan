@@ -18,7 +18,7 @@ class Profile extends Component {
  }
   render() {
     return (
-      <div style={{position:'absolute',overflow:'hidden',width:'100%',height:'100%'}}>
+      <div style={{position:'absolute',overflow:'hidden',width:'6.4rem',height:'10.2rem'}}>
         <Personal pers_left={this.state.pers_left} changeLeft={this.changeLeft}/>
         <div className="header-one">
         <div className="div-one">

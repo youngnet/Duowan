@@ -1,10 +1,14 @@
 import React from 'react';
 import './search.less';
-import axios from 'axios';
+import {getData} from '../../api/dataInfo';
+
 
 export default class search extends React.Component{
     constructor(){
         super();
+        this.state={
+            data:[]
+        }
     }
     componentDidMount(){
         let h=document.documentElement.clientWidth;
@@ -15,23 +19,43 @@ export default class search extends React.Component{
             this.for_all.style.width=640+'px';
         }
         this.for_all.style.height=H+'px';
-        this.for_all.style.left=h+'px';
+        // this.for_all.style.left=h+'px';
     }
     render(){
+        let {data}=this.state;
         return <div ref={x=>{this.for=x}} className='for-sear'>
             <div className='for-click' onClick={ev=>{
                 this.for_all.style.left='0';
+                this.for_all.style.opacity='1';
+
             }
             }> </div>
             <div ref={x=>{this.for_all=x}} className='for-all'>
-                <div className='for-head'>
+                <div  className='for-head'>
                     <a href="javascript:;" className='iconfont icon-houtui' onClick={ev=>{
                             this.for_all.style.left='6.4rem';
+                            this.for_all.style.opacity='0';
                     }}></a>
                     <div>
-                        <input ref={x=>{this.kw=x}} type="text" placeholder='请输入关键词'/>
+                        <input ref={x=>{this.kw=x}} type="text" placeholder='请输入关键词' onChange={ev=>{
+                            this.setState({
+                                data:[]
+                            })
+                        }}/>
                     </div>
                     <i className='iconfont icon-shuaxin' onClick={this.search_end}> </i>
+                </div>
+                <div ref={x=>{this.da=x}} className='for-data'>
+                    <ul>
+                        {
+                            data.map((item,index)=>{
+                                return  <li key={index}>
+                                    <p>{item.posterScreenName}</p>
+                                    <p>{item.content}</p>
+                                </li>
+                            })
+                        }
+                    </ul>
                 </div>
                 <div className='for-body'>
                     <p>历史搜索
@@ -54,7 +78,14 @@ export default class search extends React.Component{
         </div>
     }
     search_end=(ev)=>{
-        axios.get(``)
+        this.da.style.display="block";
+        let user=this.kw.value;
+        getData('kw',user).then(data=>{
+            console.log(data);
+            this.setState(
+                {data}
+            )
+        })
     }
 
 }
