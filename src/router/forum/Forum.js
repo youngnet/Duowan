@@ -7,8 +7,6 @@ import 'antd/dist/antd.css';
 import "./Forum.less"
 import ForumList from "./ForumList/ForumList"
 
-
-import img from "../../common/img/103409lbk6b4h4oph4chte.jpg"
 export default class Banner extends React.Component{
     constructor(){
         super();
@@ -19,7 +17,6 @@ export default class Banner extends React.Component{
             <Row style={{ overflow: 'scroll'}}>
               <Col span={8}><Link to="/ForumList?id"><img src={img} alt=""/></Link></Col>
                 <Col span={8}><Link to="/Star?id"><img src={img} alt=""/></Link></Col>
-
             </Row>
             <Row style={{ overflow: 'scroll'}}>
               <Col span={8}><Link to="/Star?id"><img src="" alt=""/></Link></Col>
@@ -50,6 +47,22 @@ export default class Banner extends React.Component{
                 <Col span={8}><Link to="/Star?id"><img src={img} alt=""/></Link></Col>
                 <Col span={8}><Link to="/Forum/ForumList?"><img src={img} alt=""/></Link></Col>
 
+=======
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Footer from "../../components/footer/footer"
+
+class Forum extends Component {
+  render() {
+    return (
+      <div>
+        Forum
+        <Footer/>
+      </div>
+    );
+  }
+}
+>>>>>>> 58756f6f387dcd26137baa3dd4dcf0406c2af0e4
 
 
 
