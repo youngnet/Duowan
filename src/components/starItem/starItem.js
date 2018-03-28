@@ -710,7 +710,7 @@ export default class starItem extends React.Component {
         let {data}=this.state;
         return <div>
             {data.map((it,index)=>{
-                return <div className='starItem'>
+                return <div key={index} className='starItem'>
                     <div className='starItem_header'>
                         <div className='portraitBox'>
                     <span className='portrait'>
