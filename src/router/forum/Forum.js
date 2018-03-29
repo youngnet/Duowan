@@ -12,7 +12,7 @@ class Forum extends Component {
   render() {
     return (
       <div>
-          <Route path="/ForumList" component={ForumList}/>
+        <Route path="/ForumList" component={ForumList}/>
         <Search/>
         <Footer/>
       </div>
