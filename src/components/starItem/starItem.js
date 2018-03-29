@@ -28,7 +28,7 @@ export default class starItem extends React.Component {
         return <div>
             {data.map((it, index) => {
                 return <div key={index} className='starItem'>
-                    <Link to={`/details/${it.id}`}>
+                    <Link to={`/details/${it.posterId}`}>
                         <div className='starItem_header'>
                             <div className='portraitBox'>
                     <span className='portrait'>
