@@ -53,5 +53,9 @@ router.get("/rankData", async (req, res) => {
     res.send(data);
   }
 });
+router.get("/class",async (req,res) => {
+  let data = await readFile("class.json");
+  res.send(data);
+})
 
 module.exports = router;
