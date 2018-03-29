@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from "prop-types"
+import {connect} from 'react-redux'
+import action from '../../store/actions'
+
 
 import './Nav.less'
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
     static defaultProps = {
         data: []
     };
@@ -13,9 +16,6 @@ export default class Nav extends React.Component {
 
     constructor() {
         super();
-        this.state = {
-            cur: 0
-        }
     }
 
     componentDidMount() {
@@ -29,34 +29,34 @@ export default class Nav extends React.Component {
     }
 
     render() {
-        let {data} = this.props;
+        let {data,changeIndex} = this.props;
         return <div className='headerBox'>
             <ul className='menuNav clearfix' ref={x => this.ul = x}
                 onClick={event => {
                     if (event.target.tagName === 'LI') {
-                        let index = parseFloat(event.target.dataset.index);
+                        let index = parseInt(event.target.dataset.index);
                         let oLis = document.getElementsByClassName('menuNav')[0].getElementsByTagName('li');
                         let oWidth = parseFloat(getComputedStyle(oLis[index]).width) + 'px';
                         this.tip.style.width = oWidth;
                         this.tip.style.left = this.ul.offsetLeft + oLis[index].offsetLeft + 'px';
-                        this.setState({
-                            cur: index
-                        });
+                        changeIndex(index);
                     }
                 }}>
                 {
                     data.map((item, index) => {
                         return <li data-index={`${index}`} key={index}
-                                   className={this.state.cur === index ? 'active' : ''}>
+                                   className={this.props.typeIndex === index ? 'active' : ''}>
                             {item}
                         </li>
                     })
                 }
             </ul>
-            <div className='navTip' ref={x => this.tip = x} style={{}}>
+            <div className='navTip' ref={x => this.tip = x}>
 
             </div>
         </div>
 
     }
 }
+
+export default connect(state=>({...state.star}),action.star)(Nav)

@@ -11,6 +11,7 @@ import Rank from "./router/rank/Rank";
 import Forum from "./router/forum/Forum";
 import rankDetail from "./router/rankDetail/rankDetail";
 import Login from "./router/SignIn/Login and registration";
+import Register from './router/register/Register';
 import Details from './router/detalis/details'
 
 
@@ -24,6 +25,8 @@ ReactDOM.render(
                 <Route path="/profile" component={Profile}/>
                 <Route path="/rankDetail" component={rankDetail}/>
                 <Route path="/details/:id" component={Details}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
                 <Redirect to="/star"/>
             </Switch>
         </Router>
