@@ -1,6 +1,6 @@
 import axios from "axios";
 axios.interceptors.response.use(resule => {
-  return result.data;
+  return resule.data;
 });
 export function getComment(id) {
   return axios.get(
