@@ -13,7 +13,7 @@ class SignIn extends React.Component{
     render(){
         return <div ref={s=>{this.sing=s}} className="sing">
             <div className="singin">
-                <span className="iconfont icon-guanbi arrow">x</span>
+                <span className="iconfont icon-guanbi arrow"></span>
                         <img className="xxx" src={require("../../common/img/105628v3943kuuzudkekdk.png")} alt =""/>
                 <div className="current">
                     <div className="current-one">
