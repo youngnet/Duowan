@@ -54,6 +54,4 @@ router.get("/rankData", async (req, res) => {
   }
 });
 
-router.get("/comment");
-
 module.exports = router;
