@@ -23,7 +23,7 @@ ReactDOM.render(
                 <Route path="/rank" component={Rank}/>
                 <Route path="/profile" component={Profile}/>
                 <Route path="/rankDetail" component={rankDetail}/>
-                <Route path="/details" component={Details}/>
+                <Route path="/details/:id" component={Details}/>
                 <Redirect to="/star"/>
             </Switch>
         </Router>
