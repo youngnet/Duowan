@@ -25,6 +25,7 @@ export default class Nav extends React.Component {
             allWidth += oLis[i].offsetWidth;
         }
         this.ul.style.width = allWidth + 1 + 'px';
+        this.tip.style.left = this.ul.offsetLeft + oLis[0].offsetLeft + 'px';
     }
 
     render() {

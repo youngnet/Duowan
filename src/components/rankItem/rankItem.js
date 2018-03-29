@@ -9,14 +9,13 @@ export default class item extends React.Component {
     }
 
     render() {
-        let article = this.props.data;
-        let id=0;
+        let data = this.props.data;
         return <div className='itemsContainer'>
             <ul>
                 {
-                    article.map((item, index) => {
+                    data.map((item, index) => {
                         return <li key={index}>
-                            <Link to={`/detail/${id}`}>
+                            <Link to={`/rankDetail?id=${index+1}`}>
                                 <img src={item.img}/>
                                 <h4>{item.title}</h4>
                             </Link>

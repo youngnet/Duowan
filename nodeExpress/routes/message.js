@@ -41,18 +41,21 @@ router.post("/collectArticle", (req, res) => {
   res.send("ok");
 });
 router.get("/rankData", async (req, res) => {
-  let { id } = Number(req.query) || 0;
-  console.log(readFile);
+
+  let { id } = req.query;
+  id==='undefined'?id=0:id=Number(id);
   if (id) {
     let data = (await readFile("rankData.json")).find(item => item.id == id);
-    console.log(data);
+    console.log(data);``
     res.send(data);
   } else {
     let data = await readFile("rankData.json");
     res.send(data);
   }
 });
-
-router.get("/comment");
+router.get("/class",async (req,res) => {
+  let data = await readFile("class.json");
+  res.send(data);
+})
 
 module.exports = router;
