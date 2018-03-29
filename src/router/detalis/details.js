@@ -3,7 +3,6 @@ import './details.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import action from '../../store/actions';
-import {getComment} from '../../api/comment'
 
 class details extends React.Component{
     constructor(){
@@ -25,9 +24,6 @@ class details extends React.Component{
             });
         }
 
-        getComment(this.props.match.params.id).then(data=>{
-            console.log(data);
-        })
         this.setState({
             data:result
         })
