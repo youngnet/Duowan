@@ -8,6 +8,7 @@ import {connect} from 'react-redux'
 import action from "../../store/actions";
 import Tab from "../../components/header/Tab";
 import './Star.less'
+import { isLogin } from "../../api/profile";
 
 
 class Star extends Component {
@@ -21,6 +22,10 @@ class Star extends Component {
     }
 
     async componentWillMount() {
+        let result = await isLogin();
+        if (result!=='ok') {
+            this.props.history.push("/login");
+        } 
         let {transStar,starData,typeItem} = this.props;
         if(starData[typeItem]&&starData[typeItem].length!==0)return;
         await transStar('type',typeItem);
