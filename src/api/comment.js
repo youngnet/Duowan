@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.interceptors.response.use(resule => {
+axios.interceptors.response.use(result => {
   return result.data;
 });
 export function getComment(id) {
