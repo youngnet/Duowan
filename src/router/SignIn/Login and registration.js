@@ -18,13 +18,15 @@ class SignIn extends React.Component{
                 <div className="current">
                     <div className="current-one">
                             <input className="current-two" type="text" placeholder='   手机号/YY通行证'/>
-                            <input className="current-two" type="text" placeholder='   登录密码'/>
+                            <input className="current-two" type="password" placeholder='   登录密码'/>
                     </div>
                 </div>
             </div>
             <div className="password">
                 <p className="password-one"><span>登录</span></p>
-                <p className="password-two"><span>忘记密码</span></p>
+                <p className="password-two"><span>忘记密码 </span><span onClick={(e) => {
+                    this.props.history.push("/register");
+                }} >立即注册</span></p>
             </div>
             <div className="logo">
                 <div className="logo-one">

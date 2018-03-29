@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Personal from '../../components/personal/personal';
 import './Profile.less';
 import Footer from "../../components/footer/footer";
+import {isLogin} from '../../api/profile';
 
 class Profile extends Component {
     constructor(){
@@ -16,6 +17,14 @@ class Profile extends Component {
           pers_left:false
       })
  }
+ 
+ async componentWillMount() {
+    let result = await isLogin();
+    if (result!=='ok') {
+        this.props.history.push("/login");
+    } 
+ }
+ 
   render() {
     return (
       <div style={{position:'absolute',overflow:'hidden',width:'6.4rem',height:'10.2rem'}}>
