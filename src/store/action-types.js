@@ -1,1 +1,2 @@
 export const TRANSFER_DATA='TRANSFER_DATA';
+export const CHANGE_INDEX='CHANGE_INDEX';
