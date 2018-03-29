@@ -8,7 +8,8 @@ class details extends React.Component{
     constructor(){
         super();
         this.state={
-            data:{}
+            data:{},
+            list:{}
         }
     }
     componentWillMount(){
@@ -23,6 +24,7 @@ class details extends React.Component{
         let h=document.documentElement.clientHeight;
         this.all.style.height=h+'px'
     }
+
     render(){
         let {data}=this.state;
         return <div className='sta-data'>
