@@ -28,7 +28,6 @@ export default class personal extends React.Component{
 
     render(){
         let {data}=this.state;
-        console.log(data);
         let {pers_left,changeLeft}=this.props;
         let style={left:pers_left?'0':'6.4rem',}
         return <div ref={x=>this.pers=x} style={style} className='Profile-personal'>
