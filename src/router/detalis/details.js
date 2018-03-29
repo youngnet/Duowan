@@ -2,7 +2,8 @@ import React from 'react';
 import './details.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import action from '../../store/actions'
+import action from '../../store/actions';
+import utils from '../../common/js/utils';
 
 class details extends React.Component{
     constructor(){
@@ -48,7 +49,7 @@ class details extends React.Component{
                     </div>
                     <div className='title-name'>
                         <p>{data.posterScreenName}<span>楼主</span></p>
-                        <p>{data.publishDateStr}</p>
+                        <p>{utils.queryTime(data.publishDateStr)}</p>
                     </div>
                     <div className='title-list'>
                         <div>
@@ -71,11 +72,18 @@ class details extends React.Component{
                 </div>
                 <div className='data-data'>
                     <div>
-                        <p>{data.publishDateStr}</p>
+                        <p>{utils.queryTime(data.publishDateStr)}</p>
                     </div>
                 </div>
                 <div className='data-body'>
                     <p>{data.content}</p>
+                   <div>
+                       {
+                           data.imageUrls.map((item,index)=>{
+                               return <img src={item} alt=""/>
+                           })
+                       }
+                   </div>
                 </div>
                 <div className='data-like'>
                     <ul>
