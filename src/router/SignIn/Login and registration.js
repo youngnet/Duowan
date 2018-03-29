@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from "prop-types"
 import './Login and registration.less'
+import {isLogin} from '../../api/profile';
 
 class SignIn extends React.Component{
     constructor(){
         super()
     }
+    
     componentDidMount(){
         let h=document.documentElement.clientHeight;
         this.sing.style.height=h+'px'
