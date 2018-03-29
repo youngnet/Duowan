@@ -14,15 +14,16 @@ class Star extends Component {
     constructor() {
         super();
         this.state = {
+            show:true,
             num:0,
-            list: ['最新', '置顶', '精华', '装备', '视频', '经验技巧',]
+            list: ['最新', '置顶', '精华', '装备', '视频', '经验技巧'],
         }
     }
 
     async componentWillMount() {
-        let {transStar,starData} = this.props;
-        if(starData&&starData.length!==0)return;
-        await transStar('type','dixiacheng');
+        let {transStar,starData,typeItem} = this.props;
+        if(starData[typeItem]&&starData[typeItem].length!==0)return;
+        await transStar('type',typeItem);
     }
     /*handlScroll=()=>{
         console.log(1);
@@ -42,17 +43,27 @@ class Star extends Component {
     };
     handlClick=()=>{
         let n=this.state.num;
+        if(n>10){
+            this.setState({
+                num:n+10,
+                show:false
+            });
+            return;
+        }
         this.setState({
             num:n+10
         })
     };
 
     render() {
+        console.log(this.props);
+        let {typeItem}=this.props;
         return <div className='starCon'>
             <Tab/>
             <Nav data={this.state.list}/>
-            <StarItem data={this.handlStarData(this.props.starData)}/>
-            <p className='starMore' onClick={this.handlClick}>加载更多...</p>
+            {this.props.starData[typeItem]?<StarItem data={this.handlStarData(this.props.starData[typeItem])}/>:null}
+            <p className='starMore' style={this.state.show?{display:'block'}:{display:'none'}} onClick={this.handlClick}>加载更多...</p>
+            <p className='starMore' style={this.state.show?{display:'none'}:{display:'block'}}>亲！没有更多了^_^</p>
             <Post/>
             <Footer/>
         </div>;

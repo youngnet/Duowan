@@ -16,7 +16,7 @@ router.get("/userInfo", function(req, res, next) {
 });
 
 router.get("/isLogin", (req, res) => {
-  res.send("isLogin");
+  res.send("ok");
 });
 router.post("/login", (req, res) => {
   // req.body.pass = md5(req.body.pass);

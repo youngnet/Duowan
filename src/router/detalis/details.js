@@ -12,9 +12,16 @@ class details extends React.Component{
         }
     }
     componentWillMount(){
-        let result=this.props.starData.find((item)=>{
+        /*let result=this.props.starData.find((item)=>{
             return item.posterId==this.props.match.params.id
-        });
+        });*/
+        let data=this.props.starData;
+        let result=null;
+        for(let key in data){
+            result=data[key].find((item)=>{
+                return item.posterId==this.props.match.params.id
+            });
+        }
         this.setState({
             data:result
         })
