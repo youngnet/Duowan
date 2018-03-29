@@ -7,6 +7,7 @@ class SignIn extends React.Component{
     constructor(){
         super()
     }
+    
     componentDidMount(){
         let h=document.documentElement.clientHeight;
         this.sing.style.height=h+'px'
