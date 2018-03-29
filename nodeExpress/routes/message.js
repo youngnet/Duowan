@@ -46,14 +46,12 @@ router.get("/rankData", async (req, res) => {
   id==='undefined'?id=0:id=Number(id);
   if (id) {
     let data = (await readFile("rankData.json")).find(item => item.id == id);
-    console.log(data);
+    console.log(data);``
     res.send(data);
   } else {
     let data = await readFile("rankData.json");
     res.send(data);
   }
 });
-
-router.get("/comment");
 
 module.exports = router;

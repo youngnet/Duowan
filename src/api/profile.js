@@ -1,16 +1,18 @@
 import axios from "./index";
-
-export function userInfo(params) {
-  return axios.get("/profile/userInfo");
+let md5 = require("blueimp-md5");
+export function userInfo(id) {
+  return axios.get(`/profile/userInfo?id=${id}`);
 }
-
-export function isLogin(params) {
+export function login(userName, passWord) {
+  return axios.post("/profile/login", { name: userName, pass: md5(passWord) });
+}
+export function isLogin() {
   return axios.get("/profile/isLogin");
 }
 
-export function login(username, password) {
-  return axios.post("/profile/login", { username, password });
-}
-export function register(username, password) {
-  return axios.post("/profile/register", { username, password });
+export function register(userName, passWord) {
+  return axios.post("/profile/register", {
+    name: userName,
+    pass: md5(passWord)
+  });
 }
