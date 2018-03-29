@@ -18,7 +18,7 @@ export default class search extends React.Component{
         }else {
             this.for_all.style.width=640+'px';
         }
-        this.for_all.style.height=H+'px';
+        // this.for_all.style.height=H+'px';
         // this.for_all.style.left=h+'px';
     }
     render(){
@@ -35,6 +35,10 @@ export default class search extends React.Component{
                     <a href="javascript:;" className='iconfont icon-houtui' onClick={ev=>{
                             this.for_all.style.left='6.4rem';
                             this.for_all.style.opacity='0';
+                        this.da.style.display="none";
+                            this.setState({
+                                data:['']
+                            })
                     }}></a>
                     <div>
                         <input ref={x=>{this.kw=x}} type="text" placeholder='请输入关键词' onChange={ev=>{
@@ -48,11 +52,11 @@ export default class search extends React.Component{
                 <div ref={x=>{this.da=x}} className='for-data'>
                     <ul>
                         {
-                            data.map((item,index)=>{
-                                return  <li key={index}>
+                            data.length==0?<li>没有</li>:data.map((item,index)=>{
+                                return (<li key={index}>
                                     <p>{item.posterScreenName}</p>
                                     <p>{item.content}</p>
-                                </li>
+                                </li>)
                             })
                         }
                     </ul>
@@ -78,10 +82,11 @@ export default class search extends React.Component{
         </div>
     }
     search_end=(ev)=>{
+
         this.da.style.display="block";
         let user=this.kw.value;
+        this.kw.value='';
         getData('kw',user).then(data=>{
-            console.log(data);
             this.setState(
                 {data}
             )

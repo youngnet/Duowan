@@ -15,7 +15,7 @@ module.exports = {
     });
   },
   writeFile(pathName, content) {
-    pathName = `${path.resolve()}/mock/${pathName}`;
+    pathName = `${path.resolve()}/database/${pathName}`;
     content = typeof content === "string" ? content : JSON.stringify(content);
     return new Promise((resolve, reject) => {
       fs.writeFile(pathName, content, "utf8", e => {

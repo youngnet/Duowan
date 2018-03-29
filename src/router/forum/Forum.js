@@ -111,6 +111,7 @@ class Forum extends Component {
     };
 
   render() {
+
       let {topIndex}=this.props.topIndex;
     return (<div style={{height:this.h+"px",background:"#888",paddingBottom:"1rem",paddingTop:"1rem",width:this.w+"px"}}>
         <div className="Banner" style={{position:"absolute",width:this.px*3+"px",flexShrink:8}}>
