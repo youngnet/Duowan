@@ -30,14 +30,14 @@ class Forum extends Component {
     }
 
     componentWillUpdate(nextProps, nextState){
-        let {step}=nextState;
+        let {step,data}=nextState;
         if (step > 0) {
             this.setState({
                 step:0
             });
             return false;
         }
-        if (step < -1) {
+        if (step <-1) {
             this.setState({
                 step:-1
             });
