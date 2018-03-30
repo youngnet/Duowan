@@ -8,20 +8,25 @@ import ForumList from "./ForumList/ForumList"
 import PropTypes from 'prop-types';
 import Search from '../../components/search/search'
 import Footer from "../../components/footer/footer"
+import {getClass}  from "../../api/dataInfo";
 
 class Forum extends Component {
     constructor(props){
         super(props);
         this.state={
-            step:this.props.typeIndex
+            step:this.props.typeIndex,
+            data:[]
         };
     }
 
-    componentWillMount(){
+    async componentWillMount(){
         let h=document.documentElement.clientHeight;
         this.h=parseInt(h);
         let w=document.documentElement.clientWidth;
         this.w=parseInt(w);
+        let data=await getClass();
+        this.setState({data});
+        console.log(data);
     }
     componentWillUpdate(nextProps, nextState){
         let {step}=nextState;
@@ -104,24 +109,20 @@ class Forum extends Component {
     };
 
     render() {
-        let {step}=this.state;
-        console.log(step);
+        let {step,data}=this.state;
+        // console.log(step);
         return <div className="Swiper" style={{height:this.h+"px"}}>
             <div className="Banner">
                 <ul className="BannerInner" style={{width:this.w*2+"px",left:this.w*step+"px"}} onTouchStart={this.start} onTouchMove={this.move} onTouchEnd={this.end}>
                     <li style={{width:this.w}}>
-                        <a>
-                            <img src="" alt=""/>
-                        </a>
-                        <a>
-                            <img src="" alt=""/>
-                        </a>
-                        <a>
-                            <img src="" alt=""/>
-                        </a>
-                        <a>
-                            <img src="" alt=""/>
-                        </a>
+                        {
+                            data?data.map((item,index)=>{
+                                return (<Link to={`/forumList/${item.type}`} key={index}>
+                                    <img src={item.img} alt=""/>
+                                    <p>{item.title}</p>
+                                </Link>)
+                            }):null
+                        }
                     </li>
                     <li style={{width:this.w}}>
 

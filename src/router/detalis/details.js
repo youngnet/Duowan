@@ -2,13 +2,15 @@ import React from 'react';
 import './details.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import action from '../../store/actions'
+import action from '../../store/actions';
+// import { getComment } from "../../api/comment";
 
 class details extends React.Component{
     constructor(){
         super();
-        this.state={
-            data:{}
+        this.state= {
+            data: {},
+            list: []
         }
     }
     componentWillMount(){
@@ -22,6 +24,7 @@ class details extends React.Component{
                 return item.posterId==this.props.match.params.id
             });
         }
+
         this.setState({
             data:result
         })
@@ -30,8 +33,10 @@ class details extends React.Component{
         let h=document.documentElement.clientHeight;
         this.all.style.height=h+'px'
     }
+
     render(){
         let {data}=this.state;
+
         return <div className='sta-data'>
             <div className='data-head'>
                 <a href='javascript:;' className='iconfont icon-houtui' onClick={event => {
@@ -72,10 +77,16 @@ class details extends React.Component{
                 <div className='data-data'>
                     <div>
                         <p>{data.publishDateStr}</p>
+
                     </div>
                 </div>
                 <div className='data-body'>
                     <p>{data.content}</p>
+                    <div>{
+                        data.imageUrls.map((item,index)=>{
+                            return<img key={index} src={item} alt=""/>
+                        })
+                    }</div>
                 </div>
                 <div className='data-like'>
                     <ul>

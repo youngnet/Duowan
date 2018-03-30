@@ -13,7 +13,7 @@ import rankDetail from "./router/rankDetail/rankDetail";
 import Login from "./router/SignIn/Login and registration";
 import Register from './router/register/Register';
 import Details from './router/detalis/details'
-
+import ForumList from "./router/forum/ForumList/ForumList"
 
 ReactDOM.render(
     <Provider store={store}>
@@ -27,6 +27,7 @@ ReactDOM.render(
                 <Route path="/details/:id" component={Details}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
+                {/*<Route path="/forumList/:type" component={ForumList}/>*/}
                 <Redirect to="/star"/>
             </Switch>
         </Router>
