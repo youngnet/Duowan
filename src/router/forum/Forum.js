@@ -113,6 +113,7 @@ class Forum extends Component {
         let {step,data}=this.state;
         // console.log(step);
         return <div className="Swiper" style={{height:this.h+"px"}}>
+            <Search/>
             <div className="Banner">
                 <ul className="BannerInner" style={{width:this.w*2+"px",left:this.w*step+"px"}} onTouchStart={this.start} onTouchMove={this.move} onTouchEnd={this.end}>
                     <li style={{width:this.w}}>
@@ -127,7 +128,6 @@ class Forum extends Component {
                     </li>
                 </ul>
             </div>
-            <Search/>
             <Footer/>
         </div>
     }

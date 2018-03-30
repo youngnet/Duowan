@@ -31,7 +31,9 @@ export default class search extends React.Component{
                 this.for_all.style.opacity='1';
 
             }
-            }> </div>
+            }>
+                <div><i className='iconfont icon-bianji'></i></div>
+            </div>
             <div ref={x=>{this.for_all=x}} className='for-all'>
                 <div  className='for-head'>
                     <a href="javascript:;" className='iconfont icon-houtui' onClick={ev=>{
