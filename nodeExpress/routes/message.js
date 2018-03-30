@@ -58,4 +58,20 @@ router.get("/class",async (req,res) => {
   res.send(data);
 })
 
+router.get("/search",async (req,res)=>{
+  let {id} = req.query;
+  let data = await readFile("index.json");
+  let result = {}
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+           result= data[key].data.find(item=>item.posterId==id);
+            if(result){
+                console.log(result);
+                res.send(result);
+                break;
+            }
+        }
+    }
+})
+
 module.exports = router;

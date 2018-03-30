@@ -1,6 +1,8 @@
 import React from 'react';
 import './search.less';
 import {getData} from '../../api/dataInfo';
+import {Link} from 'react-router-dom'
+import utils from "../../common/js/utils";
 
 
 export default class search extends React.Component{
@@ -54,8 +56,10 @@ export default class search extends React.Component{
                         {
                             data.length==0?<li>没有</li>:data.map((item,index)=>{
                                 return (<li key={index}>
-                                    <p>{item.posterScreenName}</p>
-                                    <p>{item.content}</p>
+                                        <Link to={`/searchDetail/${item.posterId}`}>
+                                            <p>{item.posterScreenName}</p>
+                                            <p >{item.content?utils.filterContent(item.content):null}</p>
+                                        </Link>
                                 </li>)
                             })
                         }
@@ -65,7 +69,11 @@ export default class search extends React.Component{
                     <p>历史搜索
                     <span>清除</span>
                     </p>
-                    <ul className='clearfix'>
+                    <ul className='clearfix' onClick={ev=>{
+                        if(ev.target.tagName!=='UL'){
+                            this.kw.value=ev.target.innerText
+                        }
+                    }}>
                         <li>秘密</li>
                         <li>英雄联盟</li>
                         <li>我的世界</li>
@@ -74,7 +82,11 @@ export default class search extends React.Component{
                 </div>
                 <div className='for-footer'>
                     <p>热门搜索</p>
-                    <ul className='clearfix'>
+                    <ul className='clearfix' onClick={ev=>{
+                        if(ev.target.tagName!=='UL'){
+                            this.kw.value=ev.target.innerText
+                        }
+                    }}>
                         <li>秘密</li>
                     </ul>
                 </div>

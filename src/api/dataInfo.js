@@ -19,3 +19,7 @@ export function rankData(id) {
 export function getClass() {
   return axios.get("http://localhost:3333/data/class");
 }
+
+export function getSearch(id) {
+    return axios.get(`http://localhost:3333/data/search?id=${id}`)
+}

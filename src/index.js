@@ -14,6 +14,8 @@ import Login from "./router/SignIn/Login and registration";
 import Register from './router/register/Register';
 import Details from './router/detalis/details'
 import ForumList from "./router/forum/ForumList/ForumList"
+import SearchDetail from "./router/searchDetail/searchDetail"
+
 
 ReactDOM.render(
     <Provider store={store}>
@@ -28,6 +30,7 @@ ReactDOM.render(
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
                 {/*<Route path="/forumList/:type" component={ForumList}/>*/}
+                <Route path="/searchDetail/:id" component={SearchDetail} />
                 <Redirect to="/star"/>
             </Switch>
         </Router>
