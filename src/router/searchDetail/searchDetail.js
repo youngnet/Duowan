@@ -1,31 +1,25 @@
 import React from 'react';
-import './details.less'
+import './searchDetails.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import action from '../../store/actions';
 import utils from '../../common/js/utils';
-
+import {getSearch} from "../../api/dataInfo"
 
 class details extends React.Component{
     constructor(){
         super();
-        this.state= {
-            data: {},
-            list: []
+        this.state={
+            data:{}
         }
     }
-    componentWillMount(){
+    async componentWillMount(){
         /*let result=this.props.starData.find((item)=>{
             return item.posterId==this.props.match.params.id
         });*/
-        let data=this.props.starData;
-        let result=null;
-        for(let key in data){
-            result=data[key].find((item)=>{
-                return item.posterId==this.props.match.params.id
-            });
-        }
-
+        // let data=this.props.starData;
+        let result=await getSearch(this.props.match.params.id);
+        console.log(result);
         this.setState({
             data:result
         })
@@ -34,14 +28,14 @@ class details extends React.Component{
         let h=document.documentElement.clientHeight;
         this.all.style.height=h+'px'
     }
-
     render(){
         let {data}=this.state;
-
-        return <div className='sta-data'>
+        let imgs=data.imageUrls;
+        // console.log(imgs);
+        return data?(<div className='sta-data'>
             <div className='data-head'>
                 <a href='javascript:;' className='iconfont icon-houtui' onClick={event => {
-                   this.props.history.goBack();
+                    this.props.history.goBack();
                 }}></a>
                 <p><strong>帖子详情</strong></p>
                 <span>楼主</span>
@@ -54,7 +48,7 @@ class details extends React.Component{
                     </div>
                     <div className='title-name'>
                         <p>{data.posterScreenName}<span>楼主</span></p>
-                        <p>{utils.queryTime(data.publishDateStr)}</p>
+                        <p>{data.publishDateStr?utils.queryTime(data.publishDateStr):null}</p>
                     </div>
                     <div className='title-list'>
                         <div>
@@ -77,18 +71,18 @@ class details extends React.Component{
                 </div>
                 <div className='data-data'>
                     <div>
-                        <p>{utils.queryTime(data.publishDateStr)}</p>
+                        <p>{data.publishDateStr?utils.queryTime(data.publishDateStr):null}</p>
                     </div>
                 </div>
                 <div className='data-body'>
-                    <p>{data.content}</p>
-                   <div>
-                       {
-                           data.imageUrls.map((item,index)=>{
-                               return <img src={item} alt=""/>
-                           })
-                       }
-                   </div>
+                    <p>{data.content?utils.filterContent(data.content):null}</p>
+                    <div>
+                        {
+                            imgs?(imgs.map((item,index)=>{
+                                return <img key={index} src={item} alt=""/>
+                            })):''
+                        }
+                    </div>
                 </div>
                 <div className='data-like'>
                     <ul>
@@ -107,19 +101,19 @@ class details extends React.Component{
                     </ul>
                 </div>
                 <div className='data-comment'>
-                   <div className='comment-all'>
-                       <div className='comment-name'>
-                           <div className='name-img'>
-                               <img src="" alt=""/>
-                           </div>
-                           <p>{data.posterScreenName}</p>
-                           <p className='comment-you'>多玩游戏</p>
-                           <i className='iconfont icon-bianji'></i>
-                       </div>
-                       <div className='comment-title'>
-                           <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
-                       </div>
-                   </div>
+                    <div className='comment-all'>
+                        <div className='comment-name'>
+                            <div className='name-img'>
+                                <img src="" alt=""/>
+                            </div>
+                            <p>{data.posterScreenName}</p>
+                            <p className='comment-you'>多玩游戏</p>
+                            <i className='iconfont icon-bianji'></i>
+                        </div>
+                        <div className='comment-title'>
+                            <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
+                        </div>
+                    </div>
                     <div className='comment-all'>
                         <div className='comment-name'>
                             <div className='name-img'>
@@ -162,11 +156,11 @@ class details extends React.Component{
             </div>
             <div className='data-post'>
                 <div className='post-ye'>
-                   <p>
-                       <span>1</span>
-                       /
-                       <span>17</span>
-                   </p>
+                    <p>
+                        <span>1</span>
+                        /
+                        <span>17</span>
+                    </p>
                 </div>
                 <div className='post-hui' onClick={ev=>{this.luce.style.display="block"}}>
                     <p>回帖</p>
@@ -180,7 +174,7 @@ class details extends React.Component{
                     </div>
                 </div>
             </div>
-        </div>
+        </div>):null;
     }
 }
 
