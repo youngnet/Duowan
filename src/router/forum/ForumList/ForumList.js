@@ -22,17 +22,13 @@ class ForumList extends Component {
     }
 
     async componentWillMount() {
-        let loginId = await isLogin();
         // console.log(loginId);
-        if (!Number(loginId)) {
-            this.props.history.push("/login");
-        } else {
-            let data = await userInfo(loginId);
-            this.setState({ info: data });
-        }
-        let {transStar,starData,typeItem} = this.props;
-        if(starData[typeItem]&&starData[typeItem].length!==0)return;
-        await transStar('type',typeItem);
+        this.type=this.props.match.params.type.split(":")[0];
+        this.title=this.props.match.params.type.split(":")[1];
+        let {transStar,starData} = this.props;
+        console.log(this.props);
+        if(starData[this.type]&&starData[this.type].length!==0)return;
+        await transStar('type',this.type);
     }
     /*handlScroll=()=>{
         console.log(1);
@@ -72,12 +68,12 @@ class ForumList extends Component {
                 <a href='javascript:;' className='iconfont icon-houtui' onClick={event => {
                     this.props.history.goBack();
                 }}></a>
-                <p><strong>帖子详情</strong></p>
-                <span>楼主</span>
+                <p><strong>{this.title}</strong></p>
+                <span>关注</span>
                 <i className='iconfont icon-tiezi'></i>
             </div>
             <Nav data={this.state.list}/>
-            {this.props.starData[typeItem]?<StarItem data={this.handlStarData(this.props.starData[typeItem])}/>:null}
+            {this.props.starData[this.type]?<StarItem data={this.handlStarData(this.props.starData[this.type])}/>:null}
             <p className='starMore' style={this.state.show?{display:'block'}:{display:'none'}} onClick={this.handlClick}>加载更多...</p>
             <p className='starMore' style={this.state.show?{display:'none'}:{display:'block'}}>亲！没有更多了^_^</p>
             <Post/>

@@ -119,7 +119,7 @@ class Forum extends Component {
                     <li style={{width:this.w}}>
                         {
                             data?data.map((item,index)=>{
-                                return (<Link to={`/forumList/${item.type}`} key={index}>
+                                return (<Link to={`/forumList/${item.type}:${item.title}`} key={index}>
                                     <img src={item.img} alt=""/>
                                     <p>{item.title}</p>
                                 </Link>)
