@@ -28,6 +28,7 @@ class Forum extends Component {
         this.setState({data});
         console.log(data);
     }
+
     componentWillUpdate(nextProps, nextState){
         let {step}=nextState;
         if (step > 0) {
@@ -123,9 +124,6 @@ class Forum extends Component {
                                 </Link>)
                             }):null
                         }
-                    </li>
-                    <li style={{width:this.w}}>
-
                     </li>
                 </ul>
             </div>

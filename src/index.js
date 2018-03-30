@@ -29,7 +29,7 @@ ReactDOM.render(
                 <Route path="/details/:id" component={Details}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
-                {/*<Route path="/forumList/:type" component={ForumList}/>*/}
+                <Route path="/forumList/:type" component={ForumList}/>
                 <Route path="/searchDetail/:id" component={SearchDetail} />
                 <Redirect to="/star"/>
             </Switch>
