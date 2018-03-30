@@ -83,7 +83,7 @@ class details extends React.Component{
                    <div>
                        {
                            data.imageUrls.map((item,index)=>{
-                               return <img src={item} alt=""/>
+                               return <img key={index} src={item} alt=""/>
                            })
                        }
                    </div>
