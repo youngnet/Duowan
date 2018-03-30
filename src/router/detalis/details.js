@@ -79,7 +79,7 @@ class details extends React.Component{
                     </div>
                 </div>
                 <div className='data-body'>
-                    <p>{data.content}</p>
+                    <p>{data.content?utils.filterContent(data.content):null}</p>
                    <div>
                        {
                            data.imageUrls.map((item,index)=>{
