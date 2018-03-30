@@ -26,7 +26,6 @@ class Forum extends Component {
         this.w=parseInt(w);
         let data=await getClass();
         this.setState({data});
-        console.log(data);
     }
 
     componentWillUpdate(nextProps, nextState){

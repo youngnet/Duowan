@@ -26,7 +26,6 @@ class ForumList extends Component {
         this.type=this.props.match.params.type.split(":")[0];
         this.title=this.props.match.params.type.split(":")[1];
         let {transStar,starData} = this.props;
-        console.log(this.props);
         if(starData[this.type]&&starData[this.type].length!==0)return;
         await transStar('type',this.type);
     }
@@ -63,7 +62,7 @@ class ForumList extends Component {
     render() {
         // console.log(this.props);
         let {typeItem}=this.props;
-        return <div className='starCon'>
+        return <div className='star-con'>
             <div className='data-head'>
                 <a href='javascript:;' className='iconfont icon-houtui' onClick={event => {
                     this.props.history.goBack();
