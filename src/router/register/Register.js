@@ -28,7 +28,9 @@ class Register extends React.Component{
                     if (this.pass1.value!==this.pass2.value) {
                         alert('两次密码不一致')
                     }else{
+                        console.log(register);
                         let result = await register(this.name1,this.pass1);
+                        console.log(result);
                         result==='success'?this.props.history.push('/forum'):null;
                     }
                 }} ><span>立即注册</span></p>

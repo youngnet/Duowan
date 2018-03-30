@@ -21,6 +21,7 @@ class Profile extends Component {
  
  async componentWillMount() {
     let loginId = await isLogin();
+    console.log(loginId);
     if (!Number(loginId)) {
         this.props.history.push("/login");
     } else {

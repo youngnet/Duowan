@@ -3,6 +3,7 @@ import './details.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import action from '../../store/actions';
+// import { getComment } from "../../api/comment";
 
 class details extends React.Component{
     constructor(){
@@ -83,7 +84,7 @@ class details extends React.Component{
                     <p>{data.content}</p>
                     <div>{
                         data.imageUrls.map((item,index)=>{
-                            return<img src={item} alt=""/>
+                            return<img key={index} src={item} alt=""/>
                         })
                     }</div>
                 </div>

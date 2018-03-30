@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 import action from "../../store/actions";
 import Tab from "../../components/header/Tab";
 import './Star.less'
-import { isLogin } from "../../api/profile";
+import { isLogin,userInfo } from "../../api/profile";
 
 
 class Star extends Component {
@@ -22,10 +22,14 @@ class Star extends Component {
     }
 
     async componentWillMount() {
-        let result = await isLogin();
-        if (result!=='ok') {
+        let loginId = await isLogin();
+        // console.log(loginId);
+        if (!Number(loginId)) {
             this.props.history.push("/login");
-        } 
+        } else {
+            let data = await userInfo(loginId);
+            this.setState({ info: data });
+        }
         let {transStar,starData,typeItem} = this.props;
         if(starData[typeItem]&&starData[typeItem].length!==0)return;
         await transStar('type',typeItem);
@@ -61,7 +65,7 @@ class Star extends Component {
     };
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         let {typeItem}=this.props;
         return <div className='starCon'>
             <Tab/>

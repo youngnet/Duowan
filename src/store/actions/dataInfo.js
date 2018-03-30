@@ -4,7 +4,7 @@ import {getData} from '../../api/dataInfo'
 const starAction={
     async transStar(type,str){
         let result=await getData(type,str);
-        console.log(result);
+        // console.log(result);
         return {type:Types.TRANSFER_DATA,payload:result,name:str}
     },
     changeIndex(index){
