@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import Personal from '../../components/personal/personal';
 import './Profile.less';
 import Footer from "../../components/footer/footer";
-import {isLogin} from '../../api/profile';
+import {isLogin,userInfo} from '../../api/profile';
 
 class Profile extends Component {
     constructor(){
         super();
         this.state={
-            pers_left:false
+            pers_left:false,
+            info:{}
         }
     }
  changeLeft=()=>{
@@ -19,10 +20,14 @@ class Profile extends Component {
  }
  
  async componentWillMount() {
-    let result = await isLogin();
-    if (result!=='ok') {
+    let loginId = await isLogin();
+    console.log(loginId);
+    if (!Number(loginId)) {
         this.props.history.push("/login");
-    } 
+    } else {
+        let data = await userInfo(loginId);
+        this.setState({ info: data });
+    }
  }
  
   render() {

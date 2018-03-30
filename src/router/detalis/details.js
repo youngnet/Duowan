@@ -4,8 +4,6 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import action from '../../store/actions';
 import utils from '../../common/js/utils';
-
-
 class details extends React.Component{
     constructor(){
         super();
