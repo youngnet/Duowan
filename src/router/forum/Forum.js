@@ -29,18 +29,18 @@ class Forum extends Component {
         this.setState({data});
     }
 
-    /*componentWillUpdate(nextProps, nextState){
+    componentWillUpdate(nextProps, nextState){
         let {typeIndex}=nextProps;
-        if (typeIndex > 0) {
+        if (typeIndex > 1) {
+            this.props.changeIndex(1);
+            return false;
+        }
+        if (typeIndex <0) {
             this.props.changeIndex(0);
             return false;
         }
-        if (typeIndex <-1) {
-            this.props.changeIndex(-1);
-            return false;
-        }
         return true;
-    }*/
+    }
 
     //判断是否滑动 true/false
     isSwiper=(strX,strY,endX,endY)=> {
@@ -97,7 +97,7 @@ class Forum extends Component {
             if(Math.abs(changeX)>=this.w/3){
                 if(dir=="left"){
                     step++;
-                }else{
+                }else if(dir=='right'){
                     step--;
                 }
             }
