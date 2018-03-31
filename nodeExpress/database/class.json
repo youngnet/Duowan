@@ -1,40 +1,42 @@
 [
   {
     "type": "dixiacheng",
-    "img":"http://bpic.588ku.com/element_origin_min_pic/17/08/15/e63ff2ceb3f8fb0feb06b87cf0a58a8b.jpg"
+    "img": "http://bpic.588ku.com/element_origin_min_pic/17/08/15/e63ff2ceb3f8fb0feb06b87cf0a58a8b.jpg",
+    "title": "地下城"
   },
   {
     "type": "qiannvyouhun",
-    "img":
-      "http://img2.imgtn.bdimg.com/it/u=686843256,2205544154&fm=27&gp=0.jpg"
+    "img": "http://img2.imgtn.bdimg.com/it/u=686843256,2205544154&fm=27&gp=0.jpg",
+    "title": "倩女幽魂"
   },
   {
     "type": "wodeshijie",
-    "img":
-      "http://img3.imgtn.bdimg.com/it/u=1723340688,2045770197&fm=27&gp=0.jpg"
+    "img": "http://img3.imgtn.bdimg.com/it/u=1723340688,2045770197&fm=27&gp=0.jpg",
+    "title": "我的世界"
   },
   {
     "type": "buluochongtu",
-    "img":
-      "http://img2.imgtn.bdimg.com/it/u=2491261184,4157850064&fm=27&gp=0.jpg"
+    "img": "http://img2.imgtn.bdimg.com/it/u=2491261184,4157850064&fm=27&gp=0.jpg",
+    "title": "部落冲突"
   },
   {
     "type": "gujianqitan",
-    "img":
-      "http://img5.imgtn.bdimg.com/it/u=2775710930,2983944871&fm=27&gp=0.jpg"
+    "img": "http://img5.imgtn.bdimg.com/it/u=2775710930,2983944871&fm=27&gp=0.jpg",
+    "title": "古剑奇谭"
   },
   {
     "type": "tianlongbabu",
-    "img":
-      "http://img3.imgtn.bdimg.com/it/u=2307091566,4191613837&fm=27&gp=0.jpg"
+    "img": "http://img3.imgtn.bdimg.com/it/u=2307091566,4191613837&fm=27&gp=0.jpg",
+    "title": "天龙八部"
   },
   {
     "type": "longzhigu",
-    "img": "http://img1.imgtn.bdimg.com/it/u=592536831,701835946&fm=27&gp=0.jpg"
+    "img": "http://img1.imgtn.bdimg.com/it/u=592536831,701835946&fm=27&gp=0.jpg",
+    "title": "龙之谷"
   },
   {
     "type": "xunxian",
-    "img":
-      "http://img1.imgtn.bdimg.com/it/u=2140625644,811390803&fm=27&gp=0.jpg"
+    "img": "http://img1.imgtn.bdimg.com/it/u=2140625644,811390803&fm=27&gp=0.jpg",
+    "title": "寻仙"
   }
 ]
