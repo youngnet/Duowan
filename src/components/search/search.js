@@ -54,13 +54,21 @@ export default class search extends React.Component{
                     <i className='iconfont icon-shuaxin' onClick={this.search_end}> </i>
                 </div>
                 <div ref={x=>{this.da=x}} className='for-data'>
-                    <ul>
+                    <ul className='clearfix'>
                         {
                             data.length==0?<li>没有</li>:data.map((item,index)=>{
                                 return (<li key={index}>
                                         <Link to={`/searchDetail/${item.posterId}`}>
                                             <p>{item.posterScreenName}</p>
                                             <p >{item.content?utils.filterContent(item.content):null}</p>
+                                            {
+                                                item.imageUrls?(item.imageUrls.map((it,i)=>{
+
+                                                    if(1<item.imageUrls.length){
+                                                        return <img className='data-i' key={i} src={it} />
+                                                    }
+                                                    return <img key={i} src={it} />})):null
+                                            }
                                         </Link>
                                 </li>)
                             })
