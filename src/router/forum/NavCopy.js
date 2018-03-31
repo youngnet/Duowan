@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from "prop-types"
 import {connect} from 'react-redux'
-import action from '../../store/actions'
+import action from '../../store/actions/index'
 
 
-import './Nav.less'
+import './NavCopy.less'
 
 class Nav extends React.Component {
     static defaultProps = {
@@ -16,9 +16,6 @@ class Nav extends React.Component {
 
     constructor() {
         super();
-        this.state={
-            cur:0
-        }
     }
 
     componentDidMount() {
@@ -27,28 +24,30 @@ class Nav extends React.Component {
         for (let i = 0; i < oLis.length; i++) {
             allWidth += oLis[i].offsetWidth;
         }
-        this.ul.style.width = allWidth + 1 + 'px';
-        this.tip.style.left = this.ul.offsetLeft + oLis[0].offsetLeft + 'px';
+        this.ul.style.width = allWidth  + 'px';
+        this.tip.style.left = this.ul.offsetLeft + oLis[this.props.typeIndex].offsetLeft + 'px';
     }
 
+    componentDidUpdate(){
+        let oLis = document.getElementsByClassName('menuNav')[0].getElementsByTagName('li');
+        let oWidth = parseFloat(getComputedStyle(oLis[this.props.typeIndex]).width) + 'px';
+        this.tip.style.width = oWidth;
+        this.tip.style.left = this.ul.offsetLeft + oLis[this.props.typeIndex].offsetLeft + 'px';
+    }
     render() {
-        let {data} = this.props;
+        let {data,changeIndex} = this.props;
         return <div className='headerBox'>
             <ul className='menuNav clearfix' ref={x => this.ul = x}
                 onClick={event => {
                     if (event.target.tagName === 'LI') {
                         let index = parseInt(event.target.dataset.index);
-                        let oLis = document.getElementsByClassName('menuNav')[0].getElementsByTagName('li');
-                        let oWidth = parseFloat(getComputedStyle(oLis[index]).width) + 'px';
-                        this.tip.style.width = oWidth;
-                        this.tip.style.left = this.ul.offsetLeft + oLis[index].offsetLeft + 'px';
-                        this.setState({cur:index});
+                        changeIndex(index);
                     }
                 }}>
                 {
                     data.map((item, index) => {
                         return <li data-index={`${index}`} key={index}
-                                   className={this.state.cur === index ? 'active' : ''}>
+                                   className={this.props.typeIndex === index ? 'active' : ''}>
                             {item}
                         </li>
                     })

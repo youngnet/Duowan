@@ -1,0 +1,35 @@
+.headerBox {
+  width: 100%;
+  height: .8rem;
+  line-height: .8rem;
+  overflow: scroll;
+  position: relative;
+  margin-bottom: .02rem;
+  background-color: #fff;
+  .menuNav {
+    position: absolute;
+    height: 100%;
+    left: .3rem;
+    li {
+      float: left;
+      padding-right: .6rem;
+      font-size: .3rem;
+      color: #a1a1a1;
+      &.active {
+        color: #000;
+      }
+    }
+
+  }
+  .navTip {
+    position: absolute;
+    width: .6rem;
+    height: .04rem;
+    background-color: #f01400;
+    bottom: 0;
+    transition: all .5s;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

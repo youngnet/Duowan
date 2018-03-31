@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import Search from '../../components/search/search'
 import Footer from "../../components/footer/footer"
 import {getClass}  from "../../api/dataInfo";
-import Nav from  "../../components/header/Nav"
+import Nav from  "./NavCopy"
 
 class Forum extends Component {
     constructor(props){
@@ -111,8 +111,8 @@ class Forum extends Component {
         // console.log(step);
         return <div className="Swiper" style={{height:this.h+"px"}}>
             <Search/>
-            <Nav  data={this.state.list}/>
             <div className="Banner">
+                <Nav data={this.state.list}/>
                 <ul className="BannerInner" style={{width:this.w*2+"px",left:-this.w*step+"px"}} onTouchStart={this.start} onTouchMove={this.move} onTouchEnd={this.end}>
                     <li style={{width:this.w}}>
                         {
