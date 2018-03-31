@@ -165,19 +165,21 @@ class details extends React.Component{
                     </div>
                     <div className='luce-fa' onClick={ev=>{
                         let val=this.inpost.value;
-                        let obj={
-                            id:list.id,
-                            content:val,
-                            commenterScreenName:this.props.userName
-                        }
-                        postContent(this.state.data.id,obj).then(data=>{
-                            getComment(this.state.data.id).then(data=>{
-                                this.setState({
-                                    list:data
-                                });
+                        if (val){
+                            let obj={
+                                id:list.id,
+                                content:val,
+                                commenterScreenName:this.props.userName
+                            }
+                            postContent(this.state.data.id,obj).then(data=>{
+                                getComment(this.state.data.id).then(data=>{
+                                    this.setState({
+                                        list:data
+                                    });
+                                })
+                                this.inpost.value="";
                             })
-                            this.inpost.value="";
-                        })
+                        }
                     }}>
                         <p>发送</p>
                     </div>
