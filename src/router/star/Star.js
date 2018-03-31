@@ -65,7 +65,6 @@ class Star extends Component {
     };
 
     render() {
-        // console.log(this.props);
         let {typeItem}=this.props;
         return <div className='starCon'>
             <Tab/>

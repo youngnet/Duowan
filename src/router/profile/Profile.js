@@ -17,7 +17,7 @@ class Profile extends Component {
       this.setState({
           pers_left:false
       })
- }
+ };
  
  async componentWillMount() {
     let loginId = await isLogin();
@@ -29,7 +29,7 @@ class Profile extends Component {
         console.log(data);
     }
  }
- 
+
   render() {
     return (
       <div style={{position:'absolute',overflow:'hidden',width:'6.4rem',height:'10.2rem'}}>
