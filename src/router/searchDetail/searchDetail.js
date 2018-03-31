@@ -19,7 +19,6 @@ class details extends React.Component{
         });*/
         // let data=this.props.starData;
         let result=await getSearch(this.props.match.params.id);
-        console.log(result);
         this.setState({
             data:result
         })

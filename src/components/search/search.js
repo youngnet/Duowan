@@ -64,7 +64,7 @@ export default class search extends React.Component{
                                             {
                                                 item.imageUrls?(item.imageUrls.map((it,i)=>{
 
-                                                    if(1<item.imageUrls.length){console.log(i);
+                                                    if(1<item.imageUrls.length){
                                                         return <img className='data-i' key={i} src={it} />
                                                     }
                                                     return <img key={i} src={it} />})):null
