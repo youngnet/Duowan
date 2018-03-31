@@ -71,7 +71,7 @@ class Profile extends Component {
                 <ul>
                     <li className="user">用户反馈</li>
                     <li className="user">设置</li>
-                    <li className="user">切换账号</li>
+                    <li className="user" onClick={()=>{this.props.history.push("/login")}} >切换账号</li>
                 </ul>
             </div>
             <Footer/>
