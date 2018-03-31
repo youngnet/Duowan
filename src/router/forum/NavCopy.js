@@ -24,7 +24,7 @@ class Nav extends React.Component {
         for (let i = 0; i < oLis.length; i++) {
             allWidth += oLis[i].offsetWidth;
         }
-        this.ul.style.width = allWidth  + 'px';
+        this.ul.style.width = allWidth + 1 + 'px';
         this.tip.style.left = this.ul.offsetLeft + oLis[this.props.typeIndex].offsetLeft + 'px';
     }
 
