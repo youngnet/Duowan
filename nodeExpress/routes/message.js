@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var readFile = require("./utils").readFile;
+var writeFile = require("./utils").writeFile;
 var axios = require("axios");
 
 router.get("/getData", async function(req, res, next) {
@@ -25,9 +26,21 @@ router.get("/getData", async function(req, res, next) {
   }
 });
 
-router.post("/comment", (req, res) => {
-  console.log("comment");
-  res.send("post success");
+router.post("/comment",async (req, res) => {
+  let {id} = req.query;
+  let comment = req.body.comment;
+  let result = await readFile("comment.json");
+  result = result.map(item=>{
+    if (item.id==id) {
+      item.data.push(comment)
+    }
+    return item;
+  })
+  writeFile('comment.json',result).then(() => {
+    res.send("success");
+  }).catch((e) => {
+    res.send("failed")
+  }) 
 });
 
 router.post("/collectArticle", (req, res) => {
@@ -46,7 +59,6 @@ router.get("/rankData", async (req, res) => {
   id==='undefined'?id=0:id=Number(id);
   if (id) {
     let data = (await readFile("rankData.json")).find(item => item.id == id);
-    console.log(data);``
     res.send(data);
   } else {
     let data = await readFile("rankData.json");
@@ -66,12 +78,18 @@ router.get("/search",async (req,res)=>{
         if (data.hasOwnProperty(key)) {
            result= data[key].data.find(item=>item.posterId==id);
             if(result){
-                console.log(result);
                 res.send(result);
                 break;
             }
         }
     }
+})
+
+router.get("/comment",async (req,res)=>{
+  let {id} = req.query;
+  let result = await readFile("comment.json");
+  result = result.find(item=>item.id==id);
+  res.send(result.data);
 })
 
 module.exports = router;
