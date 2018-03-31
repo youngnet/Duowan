@@ -12,7 +12,10 @@ router.use(async (req, res, next) => {
 });
 router.get("/userInfo", function(req, res, next) {
   let { id } = req.params;
-  res.send(req.data.find(item => item.id == id));
+  console.log(id);
+  let result = req.data.find(item => item.id == id)
+  console.log(result);
+  res.send(result);
 });
 
 router.get("/isLogin", (req, res) => {

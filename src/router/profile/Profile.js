@@ -20,13 +20,12 @@ class Profile extends Component {
  }
  
  async componentWillMount() {
-    let loginId = await isLogin();
-    if (!Number(loginId)) {
+    this.loginId = await isLogin();
+    if (!Number(this.loginId)) {
         this.props.history.push("/login");
     } else {
-        let data = await userInfo(loginId);
+        let data = await userInfo(this.loginId);
         this.setState({ info: data });
-        console.log(data);
     }
  }
  
