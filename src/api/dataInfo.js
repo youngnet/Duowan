@@ -15,3 +15,7 @@ export function collectArticle(info) {
 export function rankData(id) {
   return axios.get(`/data/rankData?id=${id}`);
 }
+
+export function getClass() {
+  return axios.get("/data/class");
+}
