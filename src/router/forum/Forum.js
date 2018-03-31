@@ -9,13 +9,14 @@ import PropTypes from 'prop-types';
 import Search from '../../components/search/search'
 import Footer from "../../components/footer/footer"
 import {getClass}  from "../../api/dataInfo";
+import Nav from  "./NavCopy"
 
 class Forum extends Component {
     constructor(props){
         super(props);
         this.state={
-            step:this.props.typeIndex,
-            data:[]
+            data:[],
+            list: ['热门', '网游']
         };
     }
 
@@ -29,17 +30,13 @@ class Forum extends Component {
     }
 
     componentWillUpdate(nextProps, nextState){
-        let {step}=nextState;
-        if (step > 0) {
-            this.setState({
-                step:0
-            });
+        let {typeIndex}=nextProps;
+        if (typeIndex > 1) {
+            this.props.changeIndex(1);
             return false;
         }
-        if (step < -1) {
-            this.setState({
-                step:-1
-            });
+        if (typeIndex <0) {
+            this.props.changeIndex(0);
             return false;
         }
         return true;
@@ -92,29 +89,41 @@ class Forum extends Component {
 
     end=(e)=>{
         //onMouseLeave 鼠标抬起
-        let {step}=this.state;
+        let step=this.props.typeIndex;
         let isMove=this.obj.isMove,
             dir=this.obj.dir,
             changeX=parseFloat(this.obj.changeX);
         if(isMove&&/(left|right)/.test(dir)){
             if(Math.abs(changeX)>=this.w/3){
                 if(dir=="left"){
-                    step--;
-                }else{
                     step++;
+                }else if(dir=='right'){
+                    step--;
                 }
             }
         }
-        this.setState({step});
+        this.props.changeIndex(step);
     };
 
     render() {
-        let {step,data}=this.state;
+        let {data}=this.state;
+        let step=this.props.typeIndex;
         // console.log(step);
         return <div className="Swiper" style={{height:this.h+"px"}}>
             <Search/>
             <div className="Banner">
-                <ul className="BannerInner" style={{width:this.w*2+"px",left:this.w*step+"px"}} onTouchStart={this.start} onTouchMove={this.move} onTouchEnd={this.end}>
+                <Nav data={this.state.list}/>
+                <ul className="BannerInner" style={{width:this.w*2+"px",left:-this.w*step+"px"}} onTouchStart={this.start} onTouchMove={this.move} onTouchEnd={this.end}>
+                    <li style={{width:this.w}}>
+                        {
+                            data?data.map((item,index)=>{
+                                return (<Link to={`/forumList/${item.type}:${item.title}`} key={index}>
+                                    <img src={item.img} alt=""/>
+                                    <p>{item.title}</p>
+                                </Link>)
+                            }):null
+                        }
+                    </li>
                     <li style={{width:this.w}}>
                         {
                             data?data.map((item,index)=>{

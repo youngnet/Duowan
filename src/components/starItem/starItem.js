@@ -11,13 +11,6 @@ export default class starItem extends React.Component {
         super();
     }
 
-    queryTime = (date) => {
-        let reg = /\d+-(\d+)-(\d+)T(\d+):(\d+):\d+/g;
-        let s = date.replace(reg, function (...arg) {
-            return `${arg[1]}-${arg[2]} ${arg[3]}:${arg[4]}`
-        });
-        return s;
-    };
     reduceContent = (data) => {
         data.length > 100 ? data = data.slice(0, 101) : null;
         return data
@@ -36,7 +29,7 @@ export default class starItem extends React.Component {
                             </div>
                             <div className='header_left'>
                                 <h5>{it.posterScreenName}</h5>
-                                <p>{this.queryTime(it.publishDateStr)}</p>
+                                <p>{utils.queryTime(it.publishDateStr)}</p>
                             </div>
                             <div className='header-right'>
                                 <span><i className='iconfont icon-xiaoxi'></i>{it.commentCount}</span>
