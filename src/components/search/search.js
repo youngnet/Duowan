@@ -32,7 +32,7 @@ export default class search extends React.Component{
 
             }
             }>
-                <div><i className='iconfont icon-bianji'></i></div>
+                <div> <p>请输入关键词</p><i className='iconfont icon-bianji'></i></div>
             </div>
             <div ref={x=>{this.for_all=x}} className='for-all'>
                 <div  className='for-head'>

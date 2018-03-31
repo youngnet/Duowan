@@ -4,6 +4,8 @@ import Personal from '../../components/personal/personal';
 import './Profile.less';
 import Footer from "../../components/footer/footer";
 import {isLogin,userInfo} from '../../api/profile';
+import {connect} from "react-redux";
+import action from "../../store/actions/index"
 
 class Profile extends Component {
     constructor(){
@@ -25,7 +27,9 @@ class Profile extends Component {
         this.props.history.push("/login");
     } else {
         let data = await userInfo(this.loginId);
-        this.setState({ info: data });    
+        this.setState({ info: data },()=>{
+            this.props.getUserId(this.state.info.name)
+        });
     }
  }
 
@@ -86,4 +90,4 @@ Profile.propTypes = {
 
 }
 
-export default Profile;
+export default connect(state=>({...state.star}),action.star)(Profile);

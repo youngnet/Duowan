@@ -11,6 +11,9 @@ const starAction={
     },
     changeType(type){
         return {type:Types.CHANGE_TYPE,typeItem:type}
+    },
+    getUserId(id){
+        return {type:Types.USERID,id:id}
     }
 };
 export default starAction;

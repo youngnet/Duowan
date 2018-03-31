@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import action from '../../store/actions';
 import utils from '../../common/js/utils';
+import {getComment,postContent} from '../../api/dataInfo'
 class details extends React.Component{
     constructor(){
         super();
@@ -16,6 +17,7 @@ class details extends React.Component{
         /*let result=this.props.starData.find((item)=>{
             return item.posterId==this.props.match.params.id
         });*/
+
         let data=this.props.starData;
         let result=null;
         for(let key in data){
@@ -24,18 +26,26 @@ class details extends React.Component{
             });
         }
 
+
         this.setState({
             data:result
         })
     }
     componentDidMount(){
         let h=document.documentElement.clientHeight;
-        this.all.style.height=h+'px'
+        this.all.style.height=h+'px';
+        let id=this.state.data.id;
+        getComment(id).then(data=>{
+            this.setState({
+                list:data
+            });
+        })
+
     }
 
     render(){
-        let {data}=this.state;
-
+        let {data,list}=this.state;
+        console.log(list);
         return <div className='sta-data'>
             <div className='data-head'>
                 <a href='javascript:;' className='iconfont icon-houtui' onClick={event => {
@@ -105,56 +115,36 @@ class details extends React.Component{
                     </ul>
                 </div>
                 <div className='data-comment'>
-                   <div className='comment-all'>
-                       <div className='comment-name'>
-                           <div className='name-img'>
-                               <img src="" alt=""/>
-                           </div>
-                           <p>{data.posterScreenName}</p>
-                           <p className='comment-you'>多玩游戏</p>
-                           <i className='iconfont icon-bianji'></i>
-                       </div>
-                       <div className='comment-title'>
-                           <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
-                       </div>
-                   </div>
-                    <div className='comment-all'>
-                        <div className='comment-name'>
-                            <div className='name-img'>
-                                <img src="" alt=""/>
+                    {
+                        list.length?(list.map((item,index)=>{
+                            return  <div key={index} className='comment-all'>
+                                <div className='comment-name'>
+                                    <div className='name-img'>
+                                        <img src={require('../../common/img/weixin.png')} alt=""/>
+                                    </div>
+                                    <p>{item.commenterScreenName}</p>
+                                    <p className='comment-you'>多玩游戏</p>
+                                    <i className='iconfont icon-bianji'></i>
+                                </div>
+                                <div className='comment-title'>
+                                    <p>{item.content}</p>
+                                </div>
                             </div>
-                            <p>因游唱诗人</p>
-                            <p className='comment-you'>多玩游戏</p>
-                            <i className='iconfont icon-bianji'></i>
+                        })):<div className='comment-all'>
+                            <div className='comment-name'>
+                                <div className='name-img'>
+                                    <img src={require('../../common/img/weixin.png')} alt=""/>
+                                </div>
+                                <p>因游唱诗人</p>
+                                <p className='comment-you'>多玩游戏</p>
+                                <i className='iconfont icon-bianji'></i>
+                            </div>
+                            <div className='comment-title'>
+                                <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
+                            </div>
                         </div>
-                        <div className='comment-title'>
-                            <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
-                        </div>
-                    </div> <div className='comment-all'>
-                    <div className='comment-name'>
-                        <div className='name-img'>
-                            <img src="" alt=""/>
-                        </div>
-                        <p>因游唱诗人</p>
-                        <p className='comment-you'>多玩游戏</p>
-                        <i className='iconfont icon-bianji'></i>
-                    </div>
-                    <div className='comment-title'>
-                        <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
-                    </div>
-                </div> <div className='comment-all'>
-                    <div className='comment-name'>
-                        <div className='name-img'>
-                            <img src="" alt=""/>
-                        </div>
-                        <p>因游唱诗人</p>
-                        <p className='comment-you'>多玩游戏</p>
-                        <i className='iconfont icon-bianji'></i>
-                    </div>
-                    <div className='comment-title'>
-                        <p>评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
-                    </div>
-                </div>
+
+                    }
 
                 </div>
             </div>
@@ -171,9 +161,24 @@ class details extends React.Component{
                 </div>
                 <div ref={x=>{this.luce=x}} className='post-luce'>
                     <div className='luce-inp'>
-                        <input type="text" placeholder='说点什么吧'/>
+                        <input ref={x=>{this.inpost=x}} type="text" placeholder='说点什么吧'/>
                     </div>
-                    <div className='luce-fa'>
+                    <div className='luce-fa' onClick={ev=>{
+                        let val=this.inpost.value;
+                        let obj={
+                            id:list.id,
+                            content:val,
+                            commenterScreenName:this.props.userName
+                        }
+                        postContent(this.state.data.id,obj).then(data=>{
+                            getComment(this.state.data.id).then(data=>{
+                                this.setState({
+                                    list:data
+                                });
+                            })
+                            this.inpost.value="";
+                        })
+                    }}>
                         <p>发送</p>
                     </div>
                 </div>
