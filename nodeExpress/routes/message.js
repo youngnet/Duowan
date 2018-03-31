@@ -32,7 +32,7 @@ router.post("/comment",async (req, res) => {
   let result = await readFile("comment.json");
   result = result.map(item=>{
     if (item.id==id) {
-      item.data.push(comment)
+      item.data.unshift(comment)
     }
     return item;
   })
