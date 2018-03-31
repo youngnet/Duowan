@@ -9,48 +9,69 @@
       "friends": 999,
       "follow": 999,
       "age": 9,
-      "sign": "珠峰吃鸡王"
+      "sign": "珠峰吃鸡王",
+      "num": 99,
+      "master": 99
     },
     {
       "id": 2,
       "name": "chenjinhao",
       "pass": "e10adc3949ba59abbe56e057f20f883e",
-      "fans": 999,
-      "friends": 999,
-      "follow": 999,
-      "age": 9,
-      "sign": "珠峰吃鸡王"
+      "fans": 888,
+      "friends": 888,
+      "follow": 888,
+      "age": 8,
+      "sign": "珠峰吃鸡王",
+      "num": 88,
+      "master": 88
     },
     {
       "id": 3,
       "name": "dongxin",
       "pass": "e10adc3949ba59abbe56e057f20f883e",
-      "fans": 999,
-      "friends": 999,
-      "follow": 999,
-      "age": 9,
-      "sign": "珠峰吃鸡王"
+      "fans": 777,
+      "friends": 777,
+      "follow": 777,
+      "age": 7,
+      "sign": "珠峰吃鸡王",
+      "num": 77,
+      "master": 77
     },
     {
       "id": 4,
       "name": "zhangxiaojie",
       "pass": "e10adc3949ba59abbe56e057f20f883e",
-      "fans": 999,
-      "friends": 999,
-      "follow": 999,
-      "age": 9,
-      "sign": "珠峰吃鸡王"
+      "fans": 666,
+      "friends": 666,
+      "follow": 666,
+      "age": 6,
+      "sign": "珠峰吃鸡王",
+      "num": 66,
+      "master": 66
     },
     {
       "id": 5,
       "name": "zhounan",
       "pass": "e10adc3949ba59abbe56e057f20f883e",
+      "fans": 555,
+      "friends": 555,
+      "follow": 555,
+      "age": 5,
+      "sign": "珠峰吃鸡王",
+      "num": 55,
+      "master": 55
+    },
+    {
+      "id": 6,
+      "name": "youngnet",
+      "pass": "e10adc3949ba59abbe56e057f20f883e",
       "fans": 999,
       "friends": 999,
       "follow": 999,
       "age": 9,
-      "sign": "珠峰吃鸡王"
-    },
-    { "name": "youngnet", "pass": "e10adc3949ba59abbe56e057f20f883e", "id": 6 }
+      "sign": "珠峰吃鸡王",
+      "num": 99,
+      "master": 99
+    }
   ]
 }

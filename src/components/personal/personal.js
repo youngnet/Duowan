@@ -28,7 +28,7 @@ export default class personal extends React.Component{
 
     render(){
         let {data}=this.state;
-        let {pers_left,changeLeft}=this.props;
+        let {pers_left,changeLeft,info}=this.props;
         let style={left:pers_left?'0':'6.4rem',}
         return <div ref={x=>this.pers=x} style={style} className='Profile-personal'>
             {/*<div className='peR-click' onClick={ev=>{*/}
@@ -49,17 +49,17 @@ export default class personal extends React.Component{
                             <img src={data.img} alt=""/>
                         </div>
                         <div className='text-name'>
-                            <h3>{data.content==undefined?'':data.content.author}</h3>
+                            <h3>{info.name}</h3>
                             <span>Lv.2</span>
                         </div>
                         <div className='text-p'>
-                            <span>论坛年龄：0.0 </span>
-                            <span>积分：15  </span>
-                            <span>威望：0</span>
+                            <span>论坛年龄：{info.age} </span>
+                            <span>积分：{info.num}  </span>
+                            <span>威望：{info.master}</span>
                             <span className='iconfont icon-bianji'></span>
                         </div>
                         <div className='text-signature'>
-                            <p>个性签名：</p>
+                            <p>个性签名：{info.sign}</p>
                         </div>
                     </div>
                 </div>

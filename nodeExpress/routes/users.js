@@ -11,10 +11,8 @@ router.use(async (req, res, next) => {
   next();
 });
 router.get("/userInfo", function(req, res, next) {
-  let { id } = req.params;
-  console.log(id);
+  let { id } = req.query;
   let result = req.data.find(item => item.id == id)
-  console.log(result);
   res.send(result);
 });
 
