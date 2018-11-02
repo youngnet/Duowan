@@ -289,6 +289,14 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
+  devServer: {
+    proxy: {
+      "/*": "http://localhost:3333"
+    },
+    port: 3000,
+    hot: true,
+    historyApiFallback: true
+  },
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
   // cumbersome.
